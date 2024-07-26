@@ -1,0 +1,44 @@
+package aula3;
+
+public class Medico {
+		private int crm;
+		private string nome;
+		private double salario;
+		private double valorConsulta;
+		private static int totalMedicos;
+		
+		public Medico(int crm, string nome, double salario, double valorConsulta, int totalMedicos )
+		this.crm = crm;
+		this.nome = nome;
+		this.salario = salario;
+		this.valorConsulta =  valorConsulta;
+		totalMedicos += 1;
+	}
+@Override
+public string tosString() {
+	return medico("crm" + crm + ", nome"+ nome + ", salario" + salario_ ", valorConsulta" + valorConsulta +)
+};
+public int getCrm() {
+	return crm;
+};
+public string getNome() {
+	return nome;
+}
+public double getSalario() {
+	return salario;
+}
+public double getValorConsulta() {
+	return valorConsulta;
+}
+public static int getTotalMedicos() {
+	return totalMedicos;
+}
+public static void setTotalMedicos(int totalMedicos) {
+	Medico.totalMedicos = totalMedicos;
+}
+public static void pagamentoDinheiro(double valorConsulta) {
+	salario = salario + valorConsulta;
+}
+public void pagamentoPlano(double valorConsulta) {
+	salario = salario + valorConsulta * 0.7;
+}

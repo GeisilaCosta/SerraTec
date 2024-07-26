@@ -1,0 +1,22 @@
+package java1;
+
+import java.util.Scanner;
+
+public class SistemaInterno {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+       
+        System.out.println("Bem-vindo ao Sistema Bancário!");
+        System.out.print("CPF: ");
+        String cpf = scanner.nextLine();
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        
+        scanner.close();
+
+
+}
+}

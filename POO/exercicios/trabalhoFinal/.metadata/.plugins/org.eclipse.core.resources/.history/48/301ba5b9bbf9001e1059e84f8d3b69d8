@@ -1,0 +1,47 @@
+package trabalhofinalIA;
+
+public class ContaCorrente extends Conta {
+    private double taxaSaque = 0.10;
+    private double taxaDeposito = 0.10;
+    private double taxaTransferencia = 0.20;
+
+    public ContaCorrente(String cpf) {
+        super(cpf);
+    }
+
+    @Override
+    public void sacar(double valor) {
+        if (valor <= 0) {
+            throw new ValorInvalidoException("Valor de saque inválido");
+        }
+        if (valor + taxaSaque > getSaldo()) {
+            throw new SaldoInsuficienteException("Saldo insuficiente para saque");
+        }
+        double valorTotal = valor + taxaSaque;
+        super.registrarOperacao("Saque", valorTotal);
+        super.saldo -= valorTotal;
+    }
+
+    @Override
+    public void depositar(double valor) throws ValorInvalidoException {
+        if (valor <= 0) {
+            throw new ValorInvalidoException("Valor de depósito inválido");
+        }
+        super.registrarOperacao("Depósito", valor - taxaDeposito);
+        super.saldo += valor - taxaDeposito;
+    }
+
+    @Override
+    public void transferir(double valor, Conta destino) throws SaldoInsuficienteException, ValorInvalidoException {
+        if (valor <= 0) {
+            throw new ValorInvalidoException("Valor de transferência inválido");
+        }
+        if (valor + taxaTransferencia > getSaldo()) {
+            throw new SaldoInsuficienteException("Saldo insuficiente para transferência");
+        }
+        super.registrarOperacao("Transferência para " + destino.getCpf(), valor + taxaTransferencia);
+        super.saldo -= valor + taxaTransferencia;
+        destino.depositar(valor);
+    }
+}
+

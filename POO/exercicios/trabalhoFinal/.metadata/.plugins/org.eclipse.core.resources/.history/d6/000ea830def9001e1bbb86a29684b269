@@ -1,0 +1,78 @@
+package banco;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Banco {
+    private List<Cliente> clientes;
+    private List<Funcionario> funcionarios;
+    private List<Conta> contas;
+
+    public Banco() {
+        clientes = new ArrayList<>();
+        funcionarios = new ArrayList<>();
+        contas = new ArrayList<>();
+    }
+
+    // Métodos para adicionar clientes, funcionários e contas
+    public void adicionarCliente(Cliente cliente) {
+        clientes.add(cliente);
+    }
+
+    public void adicionarFuncionario(Funcionario funcionario) {
+        funcionarios.add(funcionario);
+    }
+
+    public void adicionarConta(Conta conta) {
+        contas.add(conta);
+    }
+
+    // Métodos para buscar clientes, funcionários e contas
+    public Cliente buscarClientePorCPF(String cpf) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public Funcionario buscarFuncionarioPorCPF(String cpf) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getCpf().equals(cpf)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+
+    public Conta buscarContaPorNumero(int numero) {
+        for (Conta conta : contas) {
+            if (conta.getNumero() == numero) {
+                return conta;
+            }
+        }
+        return null;
+    }
+
+    // Método para realizar login de funcionário
+    public Funcionario realizarLoginFuncionario(String cpf, String senha) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getCpf().equals(cpf) && funcionario.getSenha().equals(senha)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+
+    // Método para realizar login de cliente
+    public Cliente realizarLoginCliente(String cpf, String senha) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf) && cliente.getSenha().equals(senha)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+}
+

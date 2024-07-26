@@ -1,0 +1,114 @@
+package projetoBanco;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cliente {
+	 private String cpf;
+	    private String senha;
+	    private List<Conta> contas;
+	    
+		public Cliente(String cpf, String senha, List<Conta> contas) {
+			super();
+			this.cpf = cpf;
+			this.senha = senha;
+			this.contas =  new ArrayList<>();
+		}
+
+		public String getCpf() {
+			return cpf;
+		}
+
+		public void setCpf(String cpf) {
+			this.cpf = cpf;
+		}
+
+		public String getSenha() {
+			return senha;
+		}
+
+		public void setSenha(String senha) {
+			this.senha = senha;
+		}
+
+		public List<Conta> getContas() {
+			return contas;
+		}
+
+		public void setContas(List<Conta> contas) {
+			this.contas = contas;
+		}
+		 public void sacar(double valor) {
+		        if (valor > 0 && saldo >= valor) {
+		            saldo -= valor;
+		            registrarOperacao("Saque", valor);
+		            System.out.println("Saque realizado com sucesso.");
+		        } else {
+		            System.out.println("Valor inválido ou saldo insuficiente.");
+		        }
+		    }
+
+		    public void depositar(double valor) {
+		        if (valor > 0) {
+		            saldo += valor;
+		            registrarOperacao("Depósito", valor);
+		            System.out.println("Depósito realizado com sucesso.");
+		        } else {
+		            System.out.println("Valor inválido.");
+		        }
+		    }
+
+		    public void transferir(double valor, String cpfDestinatario) {
+		        if (valor > 0 && saldo >= valor && !cpf.equals(cpfDestinatario)) {
+		            saldo -= valor;
+		            registrarOperacao("Transferência para " + cpfDestinatario, valor);
+		            System.out.println("Transferência realizada com sucesso.");
+		        } else {
+		            System.out.println("Valor inválido, saldo insuficiente ou CPF inválido.");
+		        }
+		    }
+
+		    public void gerarRelatorioTributacao() {
+		        double totalGasto = 0;
+		        double taxaSaque = 0.10;
+		        double taxaDeposito = 0.10;
+		        double taxaTransferencia = 0.20;
+
+		        for (Operacao operacao : operacoes) {
+		            if (operacao.getTipo().equals("Saque")) {
+		                totalGasto += taxaSaque;
+		            } else if (operacao.getTipo().equals("Depósito")) {
+		                totalGasto += taxaDeposito;
+		            } else if (operacao.getTipo().startsWith("Transferência para")) {
+		                totalGasto += taxaTransferencia;
+		            }
+		        }
+
+		        System.out.println("Relatório de tributação da conta corrente:");
+		        System.out.println("Total gasto em taxas: R$" + totalGasto);
+		        System.out.println("Taxa de saque: R$" + taxaSaque);
+		        System.out.println("Taxa de depósito: R$" + taxaDeposito);
+		        System.out.println("Taxa de transferência: R$" + taxaTransferencia);
+		    }
+
+		    public void gerarRelatorioRendimento() {
+		        // Implementar relatório de rendimento
+		    }
+
+		    public void contratarSeguroVida() {
+		        System.out.print("Informe o valor a ser segurado: ");
+		        double valorSegurado = scanner.nextDouble();
+		        scanner.nextLine(); // Limpar o buffer do scanner
+
+		        double taxaTributo = valorSegurado * 0.20;
+		        saldo -= taxaTributo;
+		        System.out.println("Seguro de vida contratado com sucesso. Tributo: R$" + taxaTributo);
+		    }
+
+
+		    private void registrarOperacao(String tipoOperacao, double valor) {
+		        // Implementar registro da operação em arquivo de texto
+		    }
+		}
+		
+}

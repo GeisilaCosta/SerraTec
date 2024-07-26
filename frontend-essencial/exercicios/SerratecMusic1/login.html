@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Serratec Music</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <!-- link pasta CSS universal-->
+    <link rel="stylesheet" href="./css/login.css" />
+    <!-- link pasta CSS -->
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="box-login">
+        <div class="row"> <!-- class bootstrap "linha" -->
+          
+          <div class="col sm-6"><!-- coluna de tamanho6-->
+            <img src="./img/discos.png" alt="Imagem de discos" >
+          </div>
+
+          <div class="col sm-6"><!-- coluna de tamanho6-->
+            <div class="logo">
+              <h1>Serratec Music</h1>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email"type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha</label>
+              <input id="senha"type="password" class="form-control" >
+            </div>
+            <button id="btn-entrar" type="button" class="btn btn-primary">Entrar</button> <!--Classes do bootstrap-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <!-- jQuery library -->
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+
+   <script src="./js/model/Usuario.js"></script><!-- link pasta modelos js, (primeiro) -->
+
+    <script src="./js/base.js"></script>
+    <!-- link pasta js -->
+    <script src="./js/login.js"></script>
+    <!-- link pasta js -->
+  </body>
+</html>

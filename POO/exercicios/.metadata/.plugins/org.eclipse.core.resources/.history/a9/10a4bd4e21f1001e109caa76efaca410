@@ -1,0 +1,7 @@
+package aula3;
+import aula3.Medico
+public class TestaMedico {
+	public static void main(String[] args) {
+
+}
+}

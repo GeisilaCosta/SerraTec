@@ -1,0 +1,34 @@
+package trabalhofinalIA;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Conta implements OperacoesBancarias {
+    private String cpf;
+    private double saldo;
+    private List<String> historico;
+
+    public Conta(String cpf) {
+        this.cpf = cpf;
+        this.saldo = 0.0;
+        this.historico = new ArrayList<>();
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void registrarOperacao(String operacao, double valor) {
+        historico.add(operacao + ": R$" + valor);
+    }
+
+    public void exibirHistorico() {
+        for (String operacao : historico) {
+            System.out.println(operacao);
+        }
+    }
+}

@@ -1,0 +1,28 @@
+package trabalhoFinal;
+
+public class ContaCorrente extends Conta {
+	private static int contadorDeContas = 1; //contar as contas criadas
+	public EnunTipoConta tipo;
+	public ContaCorrente(String cpf, double saldo, String identificadorAgencia, EnunTipoConta tipo,
+			EnunTipoConta tipo2) {
+		super(cpf, saldo, identificadorAgencia, tipo);
+		tipo = tipo2;
+	}
+	public static int getContadorDeContas() {
+		return contadorDeContas;
+	}
+	public static void setContadorDeContas(int contadorDeContas) {
+		ContaCorrente.contadorDeContas = contadorDeContas;
+	}
+	public EnunTipoConta getTipo() {
+		return tipo;
+	}
+	public void setTipo(EnunTipoConta tipo) {
+		this.tipo = tipo;
+	}
+	
+
+	
+
+	
+}

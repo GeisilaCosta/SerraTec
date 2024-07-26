@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+  height: 99vh;
+}
+header {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 150px;
+    background-color: rgb(253, 6, 109);
+}
+
+div {
+    display: flex;
+    max-width: 100%;
+    gap: 10px;
+    margin: 10px;
+    height: calc(100vh - 130px);
+}
+aside {
+  flex: 1; /* Ajustando para ocupar todo o espaço restante, só funciona com display flex */
+    max-width: 180px;
+    background-color: aqua;
+}
+main {
+  flex: 1; /* Ajustando para ocupar todo o espaço restante, só funciona com display flex */
+    background-color: gray;
+}

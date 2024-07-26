@@ -1,0 +1,88 @@
+package projetoBanco;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cliente {
+	 private String cpf;
+	    private String senha;
+	    private List<Conta> contas;
+	    
+		public Cliente(String cpf, String senha, List<Conta> contas) {
+			super();
+			this.cpf = cpf;
+			this.senha = senha;
+			this.contas =  new ArrayList<>();
+		}
+
+		public String getCpf() {
+			return cpf;
+		}
+
+		public void setCpf(String cpf) {
+			this.cpf = cpf;
+		}
+
+		public String getSenha() {
+			return senha;
+		}
+
+		public void setSenha(String senha) {
+			this.senha = senha;
+		}
+
+		public List<Conta> getContas() {
+			return contas;
+		}
+
+		public void setContas(List<Conta> contas) {
+			this.contas = contas;
+		}
+		 public void sacar(double valor) {
+		        if (valor > 0 && saldo >= valor) {
+		            saldo -= valor;
+		            registrarOperacao("Saque", valor);
+		            System.out.println("Saque realizado com sucesso.");
+		        } else {
+		            System.out.println("Valor inválido ou saldo insuficiente.");
+		        }
+		    }
+
+		    public void depositar(double valor) {
+		        if (valor > 0) {
+		            saldo += valor;
+		            registrarOperacao("Depósito", valor);
+		            System.out.println("Depósito realizado com sucesso.");
+		        } else {
+		            System.out.println("Valor inválido.");
+		        }
+		    }
+
+		    public void transferir(double valor, String cpfDestinatario) {
+		        if (valor > 0 && saldo >= valor && !cpf.equals(cpfDestinatario)) {
+		            saldo -= valor;
+		            registrarOperacao("Transferência para " + cpfDestinatario, valor);
+		            System.out.println("Transferência realizada com sucesso.");
+		        } else {
+		            System.out.println("Valor inválido, saldo insuficiente ou CPF inválido.");
+		        }
+		    }
+
+		    public void gerarRelatorioTributacao() {
+		        // Implementar relatório de tributação
+		    }
+
+		    public void gerarRelatorioRendimento() {
+		        // Implementar relatório de rendimento
+		    }
+
+		    public void contratarSeguroVida() {
+		        // Implementar contratação de seguro de vida
+		    }
+
+		    private void registrarOperacao(String tipoOperacao, double valor) {
+		        // Implementar registro da operação em arquivo de texto
+		    }
+		}
+		
+}

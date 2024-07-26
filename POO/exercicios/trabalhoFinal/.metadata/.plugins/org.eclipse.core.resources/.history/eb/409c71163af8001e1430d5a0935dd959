@@ -1,0 +1,52 @@
+package java1;
+
+import java.util.Scanner;
+
+public class SistemaInterno {
+	    public static void main(String[] args) {
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	    	
+	        // Criando uma instância da classe Cliente
+	        Cliente cliente = new Cliente("Geisila", "098765543322", 1000.00);
+
+	        // Agora você pode chamar os métodos da classe Cliente usando o objeto 'cliente'
+	        cliente.depositar(100.0); // Exemplo de chamada de método para realizar um depósito
+	        cliente.sacar(50.0); // Exemplo de chamada de método para realizar um saque
+	        cliente.exibirSaldo(); // Exemplo de chamada de método para exibir o saldo
+	        Cliente cliente1 = new Cliente("João", "123456789", 1000.0);
+
+	        // Realize operações com o cliente
+	        cliente1.depositar(200.0);
+	        cliente1.sacar(50.0);
+	        cliente1.exibirSaldo();
+
+	        // Exemplo de transferência para outro cliente (crie outro objeto Cliente)
+	        Cliente cliente2 = new Cliente("Maria", "987654321", 1500.0);
+	        cliente1.transferir(100.0, cliente2);
+
+	        // Relatório de tributação da conta corrente
+	        cliente1.relatorioTributacaoContaCorrente();
+	        cliente1.relatorioRendimentoPoupanca(6); //apos 6 meses
+
+	    }
+}

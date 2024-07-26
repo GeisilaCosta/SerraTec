@@ -1,0 +1,20 @@
+package trabalhoFinal;
+
+public class ContaPoupanca extends Conta{
+	private TipoConta tipo;
+
+	public ContaPoupanca(String cpfTitular, double saldo, String identificadorAgencia, TipoConta tipo) {
+		super(cpfTitular, saldo, identificadorAgencia, tipo);
+		this.tipo = tipo;
+	}
+
+	public TipoConta getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
+
+	
+}

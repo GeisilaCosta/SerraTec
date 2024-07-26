@@ -1,0 +1,19 @@
+package planoSaude;
+
+public class Plano {
+protected String empresa;
+protected double valorPago =  80;
+protected double valorInss = 5;
+
+public plano(String empresa) {
+	super();
+	this.empresa = empresa
+}
+@override
+public String toString() {
+	return "Plano: " + empresa + "ValorPago: " +  String.format("%.2f", valorPago);
+}
+public double calcularPagamento() {
+	return valorPago = valorPago - valorPago * valorInss/100;
+}
+}

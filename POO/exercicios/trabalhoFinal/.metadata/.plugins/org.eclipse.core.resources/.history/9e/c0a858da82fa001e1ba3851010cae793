@@ -1,0 +1,27 @@
+package projetoBanco;
+
+public class ContaCorrente extends Conta {
+
+	public ContaCorrente(String cpfTitular, double saldo, String agencia, String tipo) {
+		super(cpfTitular, saldo, agencia, tipo);
+	}
+
+	@Override
+	public void sacar(double valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void depositar(double valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void transferir(double valor, Conta destino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

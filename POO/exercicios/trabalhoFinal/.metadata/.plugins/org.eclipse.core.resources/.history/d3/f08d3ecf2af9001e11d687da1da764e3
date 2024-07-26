@@ -1,0 +1,21 @@
+package trabalhoFinal;
+
+public class ContaCorrente extends Conta {
+private static int contadorDeContasC = 1; //contar as contas criadas
+
+public ContaCorrente(String nome, int cpf, int senha, int identificadorAgencia, TipoContaEnun tipo) {
+	super(nome, cpf, senha, identificadorAgencia, tipo);
+	contadorDeContasC += 1;
+}
+
+public static int getContadorDeContasC() {
+	return contadorDeContasC;
+}
+
+public static void setContadorDeContasC(int contadorDeContasC) {
+	ContaCorrente.contadorDeContasC = contadorDeContasC;
+}
+	
+	
+	
+}

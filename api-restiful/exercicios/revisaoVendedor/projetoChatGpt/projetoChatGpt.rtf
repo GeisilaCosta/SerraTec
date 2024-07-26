@@ -1,0 +1,327 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sl240\slmult1\qj\f0\fs32\lang22 Criar um novo projeto maven usando o Spring com as seguintes depend\'eancias:\par
+\par
+\fs22 Spring Web\par
+Spring Data JPA\par
+Validation\par
+Postgres\par
+H2\par
+Dev Tools\par
+\par
+application.properties\par
+Configurar o arquivo de propriedades application.properties.  Adicionar dois perfis um para uso do banco de dados postgres (production) e outro para o banco de dados h2 (developer) salvando o banco em um arquivo.  O arquivo application.properties dever\'e1 ser configurado para iniciar no profile de developer.\par
+\par
+Classes\par
+Criar as classes(entidades)  abaixo com os seguintes atributos:\par
+\par
+Vendedor\par
+codigoVendedor\par
+nome\par
+email\par
+salario\par
+comissao\par
+\par
+\par
+ LancamentoVendas \par
+codigoVenda\par
+dataVenda\par
+valorVenda\par
+vendedor\par
+\par
+Fazer o mapeamento relacional (ORM) para as classes acima.\par
+\par
+Relacionamento: Um vendedor possui um ou v\'e1rios lan\'e7amento de vendas.\par
+\par
+Popular tabela\par
+Popular a tabela de vendedor com 1000 registros utilizando o site para gera\'e7\'e3o de dados {{\field{\*\fldinst{HYPERLINK https://www.mockaroo.com/ }}{\fldrslt{https://www.mockaroo.com/\ul0\cf0}}}}\f0\fs22  \par
+\par
+\par
+\par
+Valida\'e7\'e3o\par
+Criar uma valida\'e7\'e3o para os campos nome, email e salario.\par
+Os sal\'e1rios n\'e3o poder\'e3o ser inferiores ao sal\'e1rio m\'ednimo.\par
+Nomes n\'e3o poder\'e3o ser nulos ou vazios.\par
+Utilizar a anota\'e7\'e3o para verifica\'e7\'e3o do email.\par
+\par
+\par
+Exception\par
+Criar a classe que intercepta os erros de exce\'e7\'e3o do Spring.\par
+Criar um m\'e9todo para tratar os erros de valida\'e7\'e3o.\par
+Criar um m\'e9todo para tratar os recursos n\'e3o encontrados NotFound.\par
+\par
+DTO\par
+Cria uma classe com o nome LancamentoVendasMostrarDTO com os seguintes atributos:\par
+dataVenda\par
+valorVenda\par
+nomeVendedor\par
+\par
+\par
+Service, Controller e Repository somente para a classe LancamentoVendas\par
+Criar a interface LancamentoRepository\par
+Criar a classe LancamentoService com os seguintes m\'e9todos:\par
+listarPorId\par
+inserirLancamento\par
+listarPorPagina\par
+deletar\par
+alterar\par
+Criar a classe LancamentoController com os seguintes m\'e9todos:\par
+listarPorId\par
+inserirLancamento\par
+listarPorPagina\par
+deletar\par
+alterar\par
+\par
+\par
+///////////////////////////////PROJETO//////////////////////////////////////\par
+\par
+\par
+Configurar o application.properties\par
+Crie um arquivo application.properties na pasta src/main/resources com o seguinte conte\'fado:\par
+\par
+properties\par
+Copiar c\'f3digo\par
+# Profile padr\'e3o para desenvolvimento\par
+spring.profiles.active=developer\par
+\par
+# Configura\'e7\'f5es para o perfil de desenvolvimento\par
+spring.datasource.url=jdbc:h2:file:./data/development\par
+spring.datasource.driverClassName=org.h2.Driver\par
+spring.datasource.username=sa\par
+spring.datasource.password=password\par
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect\par
+spring.h2.console.enabled=true\par
+\par
+# Configura\'e7\'f5es para o perfil de produ\'e7\'e3o\par
+spring.datasource.url=jdbc:postgresql://localhost:5432/prod\par
+spring.datasource.driverClassName=org.postgresql.Driver\par
+spring.datasource.username=postgres\par
+spring.datasource.password=password\par
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect\par
+\par
+\par
+8888888888888888888888888888888888888. Criar as Entidades888888888888888888888888\par
+\par
+Classe Vendedor\par
+\par
+import javax.persistence.*;\par
+import javax.validation.constraints.Email;\par
+import javax.validation.constraints.NotBlank;\par
+import javax.validation.constraints.NotNull;\par
+import javax.validation.constraints.Positive;\par
+import javax.validation.constraints.PositiveOrZero;\par
+\par
+@Entity\par
+public class Vendedor \{\par
+    @Id\par
+    @GeneratedValue(strategy = GenerationType.IDENTITY)\par
+    private Long codigoVendedor;\par
+\par
+    @NotBlank\par
+    private String nome;\par
+\par
+    @Email\par
+    @NotBlank\par
+    private String email;\par
+\par
+    @PositiveOrZero\par
+    private double salario;\par
+\par
+    @PositiveOrZero\par
+    private double comissao;\par
+\par
+    // Getters e setters\par
+\}\par
+\par
+\par
+Classe LancamentoVendas\par
+java\par
+Copiar c\'f3digo\par
+import javax.persistence.*;\par
+import javax.validation.constraints.NotNull;\par
+import javax.validation.constraints.Positive;\par
+import java.time.LocalDate;\par
+\par
+@Entity\par
+public class LancamentoVendas \{\par
+    @Id\par
+    @GeneratedValue(strategy = GenerationType.IDENTITY)\par
+    private Long codigoVenda;\par
+\par
+    @NotNull\par
+    private LocalDate dataVenda;\par
+\par
+    @Positive\par
+    private double valorVenda;\par
+\par
+    @ManyToOne\par
+    @JoinColumn(name = "codigoVendedor")\par
+    private Vendedor vendedor;\par
+\par
+    // Getters e setters\par
+\}\par
+\par
+4. Popular a Tabela Vendedor\par
+Voc\'ea pode usar dados gerados pelo site Mockaroo para popular a tabela Vendedor.\par
+\par
+5. Implementar a Valida\'e7\'e3o\par
+As valida\'e7\'f5es j\'e1 foram inclu\'eddas nas anota\'e7\'f5es das entidades. Certifique-se de que o javax.validation est\'e1 funcionando corretamente adicionando a depend\'eancia no pom.xml se necess\'e1rio.\par
+\par
+6. Lidar com Exce\'e7\'f5es\par
+Classe de Exce\'e7\'e3o Global\par
+java\par
+Copiar c\'f3digo\par
+import org.springframework.http.HttpStatus;\par
+import org.springframework.web.bind.annotation.ExceptionHandler;\par
+import org.springframework.web.bind.annotation.ResponseStatus;\par
+import org.springframework.web.bind.annotation.RestControllerAdvice;\par
+import org.springframework.web.bind.MethodArgumentNotValidException;\par
+\par
+import java.util.HashMap;\par
+import java.util.Map;\par
+\par
+@RestControllerAdvice\par
+public class GlobalExceptionHandler \{\par
+\par
+    @ExceptionHandler(MethodArgumentNotValidException.class)\par
+    @ResponseStatus(HttpStatus.BAD_REQUEST)\par
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) \{\par
+        Map<String, String> errors = new HashMap<>();\par
+        ex.getBindingResult().getAllErrors().forEach((error) -> \{\par
+            String fieldName = ((org.springframework.validation.FieldError) error).getField();\par
+            String errorMessage = error.getDefaultMessage();\par
+            errors.put(fieldName, errorMessage);\par
+        \});\par
+        return errors;\par
+    \}\par
+\par
+    @ExceptionHandler(ResourceNotFoundException.class)\par
+    @ResponseStatus(HttpStatus.NOT_FOUND)\par
+    public Map<String, String> handleResourceNotFoundException(ResourceNotFoundException ex) \{\par
+        Map<String, String> error = new HashMap<>();\par
+        error.put("error", ex.getMessage());\par
+        return error;\par
+    \}\par
+\}\par
+Classe de Exce\'e7\'e3o ResourceNotFoundException\par
+java\par
+Copiar c\'f3digo\par
+public class ResourceNotFoundException extends RuntimeException \{\par
+    public ResourceNotFoundException(String message) \{\par
+        super(message);\par
+    \}\par
+\}\par
+7. Criar o DTO\par
+Classe LancamentoVendasMostrarDTO\par
+java\par
+Copiar c\'f3digo\par
+public class LancamentoVendasMostrarDTO \{\par
+    private LocalDate dataVenda;\par
+    private double valorVenda;\par
+    private String nomeVendedor;\par
+\par
+    // Getters e setters\par
+\}\par
+8. Implementar Servi\'e7o, Controlador e Reposit\'f3rio\par
+Reposit\'f3rio LancamentoRepository\par
+java\par
+Copiar c\'f3digo\par
+import org.springframework.data.jpa.repository.JpaRepository;\par
+\par
+public interface LancamentoRepository extends JpaRepository<LancamentoVendas, Long> \{\par
+\}\par
+Servi\'e7o LancamentoService\par
+java\par
+Copiar c\'f3digo\par
+import org.springframework.beans.factory.annotation.Autowired;\par
+import org.springframework.data.domain.Page;\par
+import org.springframework.data.domain.Pageable;\par
+import org.springframework.stereotype.Service;\par
+import java.util.Optional;\par
+\par
+@Service\par
+public class LancamentoService \{\par
+\par
+    @Autowired\par
+    private LancamentoRepository lancamentoRepository;\par
+\par
+    public Optional<LancamentoVendas> listarPorId(Long id) \{\par
+        return lancamentoRepository.findById(id);\par
+    \}\par
+\par
+    public LancamentoVendas inserirLancamento(LancamentoVendas lancamentoVendas) \{\par
+        return lancamentoRepository.save(lancamentoVendas);\par
+    \}\par
+\par
+    public Page<LancamentoVendas> listarPorPagina(Pageable pageable) \{\par
+        return lancamentoRepository.findAll(pageable);\par
+    \}\par
+\par
+    public void deletar(Long id) \{\par
+        lancamentoRepository.deleteById(id);\par
+    \}\par
+\par
+    public LancamentoVendas alterar(Long id, LancamentoVendas lancamentoVendas) \{\par
+        LancamentoVendas lv = lancamentoRepository.findById(id)\par
+            .orElseThrow(() -> new ResourceNotFoundException("LancamentoVendas n\'e3o encontrado"));\par
+        lv.setDataVenda(lancamentoVendas.getDataVenda());\par
+        lv.setValorVenda(lancamentoVendas.getValorVenda());\par
+        lv.setVendedor(lancamentoVendas.getVendedor());\par
+        return lancamentoRepository.save(lv);\par
+    \}\par
+\}\par
+Controlador LancamentoController\par
+java\par
+Copiar c\'f3digo\par
+import org.springframework.beans.factory.annotation.Autowired;\par
+import org.springframework.data.domain.Page;\par
+import org.springframework.data.domain.Pageable;\par
+import org.springframework.http.HttpStatus;\par
+import org.springframework.http.ResponseEntity;\par
+import org.springframework.web.bind.annotation.*;\par
+\par
+import javax.validation.Valid;\par
+import java.util.Optional;\par
+\par
+@RestController\par
+@RequestMapping("/lancamentos")\par
+public class LancamentoController \{\par
+\par
+    @Autowired\par
+    private LancamentoService lancamentoService;\par
+\par
+    @GetMapping("/\{id\}")\par
+    public ResponseEntity<LancamentoVendas> listarPorId(@PathVariable Long id) \{\par
+        Optional<LancamentoVendas> lancamentoVendas = lancamentoService.listarPorId(id);\par
+        return lancamentoVendas.map(ResponseEntity::ok)\par
+                .orElseThrow(() -> new ResourceNotFoundException("LancamentoVendas n\'e3o encontrado"));\par
+    \}\par
+\par
+    @PostMapping\par
+    public ResponseEntity<LancamentoVendas> inserirLancamento(@Valid @RequestBody LancamentoVendas lancamentoVendas) \{\par
+        LancamentoVendas novoLancamento = lancamentoService.inserirLancamento(lancamentoVendas);\par
+        return new ResponseEntity<>(novoLancamento, HttpStatus.CREATED);\par
+    \}\par
+\par
+    @GetMapping\par
+    public ResponseEntity<Page<LancamentoVendas>> listarPorPagina(Pageable pageable) \{\par
+        Page<LancamentoVendas> pagina = lancamentoService.listarPorPagina(pageable);\par
+        return ResponseEntity.ok(pagina);\par
+    \}\par
+\par
+    @DeleteMapping("/\{id\}")\par
+    public ResponseEntity<Void> deletar(@PathVariable Long id) \{\par
+        lancamentoService.deletar(id);\par
+        return ResponseEntity.noContent().build();\par
+    \}\par
+\par
+    @PutMapping("/\{id\}")\par
+    public ResponseEntity<LancamentoVendas> alterar(@PathVariable Long id, @Valid @RequestBody LancamentoVendas lancamentoVendas) \{\par
+        LancamentoVendas lancamentoAtualizado = lancamentoService.alterar(id, lancamentoVendas);\par
+        return ResponseEntity.ok(lancamentoAtualizado);\par
+    \}\par
+\}\par
+Com esses passos, voc\'ea ter\'e1 um projeto Maven configurado com Spring Boot, usando as depend\'eancias e funcionalidades especificadas. Certifique-se de ajustar as configura\'e7\'f5es do banco de dados conforme necess\'e1rio para seu ambiente local.\par
+}
+ 

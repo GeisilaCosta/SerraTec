@@ -1,0 +1,9 @@
+package trabalhoFinal;
+
+public class ContaPoupanca extends Conta{
+	private static int contadorDeContas = 1; //contar as contas criadas
+	private int numeroConta;
+	private Double saldo;
+	private Cliente cliente;
+
+}

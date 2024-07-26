@@ -1,0 +1,21 @@
+package planoSaude;
+
+public class ControlePagamento {
+private double totalpago;
+
+public double getTotalpago() {
+	return totalpago;
+}
+
+public void setTotalpago(double totalpago) {
+	this.totalpago = totalpago;
+}
+public void calcularTotalPago(Plano plano) {
+	totalpago  += plano.get.valorpago();
+}
+
+public Object getTotalPago() {
+	// TODO Auto-generated method stub
+	return null;
+}
+}

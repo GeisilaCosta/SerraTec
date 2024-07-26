@@ -1,0 +1,6 @@
+package trabalhoFinal;
+
+public enum EnunTipoConta {
+	CONTA_CORRENTE, CONTA_POUPANCA;
+
+}

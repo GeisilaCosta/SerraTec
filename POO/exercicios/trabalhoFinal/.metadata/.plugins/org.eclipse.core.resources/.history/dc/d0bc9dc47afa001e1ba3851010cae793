@@ -1,0 +1,13 @@
+package projetoBanco;
+
+abstract class Conta {
+    private String cpfTitular;
+    private double saldo;
+    private String agencia;
+    private String tipo;
+
+    // Construtor, getters e setters
+    public abstract void sacar(double valor);
+    public abstract void depositar(double valor);
+    public abstract void transferir(double valor, Conta destino);
+}

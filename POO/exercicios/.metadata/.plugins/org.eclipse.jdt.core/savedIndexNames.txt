@@ -1,0 +1,6 @@
+INDEX VERSION 1.134+C:\Users\belar\OneDrive\Documentos\residencia\Programaçao orientada a objetos\codigos\exercicios\.metadata\.plugins\org.eclipse.jdt.core
+1504037885.index
+3081480913.index
+2965794504.index
+1865797976.index
+782433131.index

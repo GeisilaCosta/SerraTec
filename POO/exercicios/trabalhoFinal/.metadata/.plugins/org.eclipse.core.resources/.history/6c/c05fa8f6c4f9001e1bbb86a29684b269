@@ -1,0 +1,14 @@
+package trabalhofinalIA;
+
+class Gerente extends Funcionario {
+    private String agenciaResponsavel;
+
+    public Gerente(String cpf, String senha, String agenciaResponsavel) {
+        super(cpf, senha, "Gerente");
+        this.agenciaResponsavel = agenciaResponsavel;
+    }
+
+    public String getAgenciaResponsavel() {
+        return agenciaResponsavel;
+    }
+}

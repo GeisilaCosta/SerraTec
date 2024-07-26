@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box {
+    height: 100px; /* Defina a altura conforme necessário */
+  width: 100px; /* Defina a largura conforme necessário */
+}
+.grey {
+    flex-grow: 1;/* Defina o valor conforme necessário */
+    background-color: grey;
+}
+
+.green {
+    flex-grow: 2;
+    background-color: green;
+}
+
+.red {
+    flex-grow: 1;
+    background-color: red;
+}
+
+.blue {
+    flex-grow: 1;
+    background-color: blue;
+}

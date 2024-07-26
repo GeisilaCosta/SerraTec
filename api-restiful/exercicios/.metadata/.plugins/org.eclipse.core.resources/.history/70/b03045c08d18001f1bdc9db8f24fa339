@@ -1,0 +1,39 @@
+package br.com.serratec.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.com.serratec.repository.FotoRepository;
+
+@Service
+public class FotoService {
+	
+	@Service
+	public class FotoService {
+
+		@Autowired
+		private FotoRepository repository;
+
+		public Foto inserir(Funcionario funcionario, MultipartFile file) throws IOException {
+			Foto foto = new Foto();
+			foto.setNome(file.getName());
+			foto.setDados(file.getBytes());
+			foto.setTipo(file.getContentType());
+			foto.setFuncionario(funcionario);
+			return repository.save(foto);
+		}
+
+		public Foto buscar(Long id) {
+			Funcionario funcionario = new Funcionario();
+			funcionario.setId(id);
+			Optional<Foto> foto = repository.findByFuncionario(funcionario);
+
+			if (!foto.isPresent()) {
+				throw new ResourceNotFoundException("Foto não encontrada");
+			}
+
+			return foto.get();
+
+		}
+	
+

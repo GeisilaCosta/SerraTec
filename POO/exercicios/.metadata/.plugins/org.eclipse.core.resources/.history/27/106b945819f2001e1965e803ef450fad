@@ -1,0 +1,45 @@
+package aula;
+
+public class Medico {
+private int crm;
+private String nome;
+private double salario;
+private double valorConsulta;
+private static int totalMedico;
+
+public Medico (int crm, String nome, double salario, double valorConsulta) {
+	this.crm = crm;
+	this.nome = nome;
+	this.salario = salario;
+	this.valorConsulta= valorConsulta;
+	totalMedico += 1;
+}
+@Override
+public String toString(){
+	return "Medico("+ "crm= " + crm +  ", nome=, " + nome + "salario, " + salario + "valorConsulta" + valorConsulta + ")";
+}
+public int getCrm() {
+	return crm;
+}
+public String getNome() {
+	return nome;
+}
+public double getSalario() {
+	return salario;
+}
+public double getValorConsulta() {
+	return valorConsulta;
+}
+public static int getTotalMedico() {
+	return totalMedico;
+}
+public static void setTotalMedico(int totalmedico) {
+	Medico.totalMedico = totalMedico ;
+}
+public void pagamentoDinheiro(double valorConsulta) {
+	salario = salario + valorConsulta ;
+}
+public void pagamentoPlano(double valorConsulta) {
+	salario = salario + valorConsulta * 0.7 ;
+}
+}

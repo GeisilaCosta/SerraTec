@@ -1,0 +1,68 @@
+package projetoBanco;
+
+abstract class Conta {
+    private String cpfTitular;
+    private double saldo;
+    private String agencia;
+    private TipoContaEnun tipo ;
+    public static int contadorDeContas = 1;
+	public int numeroConta = contadorDeContas;
+
+    // Construtor, getters e setters
+    
+	public Conta(String cpfTitular, double saldo, String agencia, TipoContaEnun tipo) {
+		super();
+		this.cpfTitular = cpfTitular;
+		this.saldo = 0.0;
+		this.agencia = agencia;
+		this.tipo = tipo;
+		contadorDeContas += 1;
+	}
+    public abstract void sacar(double valor) throws SaldoInsuficienteException, ValorInvalidoException;
+    public abstract void depositar(double valor) throws ValorInvalidoException;
+    public abstract void transferir(double valor, Conta destino) throws SaldoInsuficienteException, ValorInvalidoException;
+    
+	public String getCpfTitular() {
+		return cpfTitular;
+	}
+	public void setCpfTitular(String cpfTitular) {
+		this.cpfTitular = cpfTitular;
+	}
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	public String getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+	public TipoContaEnun getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoContaEnun tipo) {
+		this.tipo = tipo;
+	}
+	 public abstract double getSaldo();
+	    
+	    public abstract void realizarOperacao(double valor, String tipoOperacao);
+	}
+	public static int getNumeroContasNaAgencia(String agencia) {
+	    int count = 0;
+	    for (Conta conta : contas) {
+	        if (conta.getAgencia().equals(agencia)) {
+	            count++;
+	        }
+	    }
+	    return count;
+	}
+
+	public void relatorioClientes() {
+	    // Implementar lógica para gerar o relatório de clientes em ordem alfabética
+	}
+
+
+}

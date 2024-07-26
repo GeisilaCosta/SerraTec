@@ -1,0 +1,39 @@
+package trabalhoFinal;
+
+public abstract class Conta  { // nao sera instanciada
+	private Cliente cliente;
+	private int identificadorAgencia;
+	private TipoContaEnun tipoConta;
+	public Conta(Cliente cliente, int identificadorAgencia, TipoContaEnun tipoConta) {
+		super();
+		this.cliente = cliente;
+		this.identificadorAgencia = identificadorAgencia;
+		this.tipoConta = tipoConta;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public int getIdentificadorAgencia() {
+		return identificadorAgencia;
+	}
+	public void setIdentificadorAgencia(int identificadorAgencia) {
+		this.identificadorAgencia = identificadorAgencia;
+	}
+	public TipoContaEnun getTipoConta() {
+		return tipoConta;
+	}
+	public void setTipoConta(TipoContaEnun tipoConta) {
+		this.tipoConta = tipoConta;
+	}
+	
+	public String toString() {
+		return "\nNome: " + this.cliente.getNome()+
+				"\nCPF: " + this.cliente.getCpf()+
+				"\nsenha: " + this.cliente.getSenha() +
+		"\nId da agencia: " + this.identificadorAgencia +
+		"\nTipo de usuario: " + this.getTipoConta();
+	}
+}

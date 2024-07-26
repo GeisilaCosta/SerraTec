@@ -1,0 +1,163 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+public class GeradorRelatorios {
+    private static final String CAMINHO_RELATORIOS = "relatorios/";
+
+    
+    public static void gerarRelatorioCliente(String cpf, double saldo, double totalGasto, double tributoSeguro) {
+        String nomeArquivo = "relatorio_cliente_" + cpf + ".txt";
+        try {
+            FileWriter fileWriter = new FileWriter(CAMINHO_RELATORIOS + nomeArquivo);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            printWriter.println("=== Relatório do Cliente ===");
+            printWriter.println("CPF: " + cpf);
+            printWriter.println("Saldo: R$" + saldo);
+            printWriter.println("Total gasto nas operações: R$" + totalGasto);
+            printWriter.println("Tributo do seguro de vida: R$" + tributoSeguro);
+
+            printWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        gerarRelatorioTributacaoContaCorrente(((Cliente) funcionarioLogado).getConta());
+
+        // Gerar relatório de rendimento da poupança
+        System.out.println("Digite o valor a ser simulado na poupança:");
+        double valor = Double.parseDouble(scanner.nextLine());
+        System.out.println("Digite a quantidade de dias para a simulação:");
+        int dias = Integer.parseInt(scanner.nextLine());
+        gerarRelatorioRendimentoPoupanca(((Cliente) funcionarioLogado).getContaPoupanca(), valor, dias);
+    }
+
+    public static void gerarRelatorioGerente(int numContas) {
+        String nomeArquivo = "relatorio_gerente.txt";
+        try {
+            FileWriter fileWriter = new FileWriter(CAMINHO_RELATORIOS + nomeArquivo);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            printWriter.println("=== Relatório do Gerente ===");
+            printWriter.println("Número de contas na agência: " + numContas);
+
+            printWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void gerarRelatorioDiretor(List<Cliente> clientes) {
+        String nomeArquivo = "relatorio_diretor.txt";
+        try {
+            FileWriter fileWriter = new FileWriter(CAMINHO_RELATORIOS + nomeArquivo);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            printWriter.println("=== Relatório do Diretor ===");
+            printWriter.println("Clientes:");
+
+            for (Cliente cliente : clientes) {
+                printWriter.println("Nome: " + cliente.getNome() + ", CPF: " + cliente.getCpf() + ", Agência: " + cliente.getAgencia());
+            }
+
+            printWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void gerarRelatorioPresidente(double capitalTotal) {
+        String nomeArquivo = "relatorio_presidente.txt";
+        try {
+            FileWriter fileWriter = new FileWriter(CAMINHO_RELATORIOS + nomeArquivo);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            printWriter.println("=== Relatório do Presidente ===");
+            printWriter.println("Capital total armazenado no banco: R$" + capitalTotal);
+
+            printWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void gerarRelatorioTributacaoContaCorrente(ContaCorrente contaCorrente) {
+        String filename = "relatorio_tributacao_" + contaCorrente.getTitular() + ".txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            double totalTaxaSaque = contaCorrente.getNumSaques() * 0.10;
+            double totalTaxaDeposito = contaCorrente.getNumDepositos() * 0.10;
+            double totalTaxaTransferencia = contaCorrente.getNumTransferencias() * 0.20;
+            double totalTaxas = totalTaxaSaque + totalTaxaDeposito + totalTaxaTransferencia;
+
+            writer.println("### Relatório de Tributação da Conta Corrente ###");
+            writer.println("Total gasto em taxas de saque: R$" + totalTaxaSaque);
+            writer.println("Total gasto em taxas de depósito: R$" + totalTaxaDeposito);
+            writer.println("Total gasto em taxas de transferência: R$" + totalTaxaTransferencia);
+            writer.println("Total de taxas pagas: R$" + totalTaxas);
+        } catch (IOException e) {
+            System.err.println("Erro ao gerar o relatório: " + e.getMessage());
+        }
+    }
+
+    public static void gerarRelatorioRendimentoPoupanca(ContaPoupanca contaPoupanca, double valor, int dias) {
+        String nomeArquivo = "relatorio_rendimento_poupanca_" + contaPoupanca.getTitular() + ".txt";
+        try {
+            FileWriter fileWriter = new FileWriter(CAMINHO_RELATORIOS + nomeArquivo);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+
+            double rendimento = contaPoupanca.calcularRendimento(valor, dias);
+            
+            printWriter.println("=== Relatório de Rendimento da Poupança ===");
+            printWriter.println("Titular: " + contaPoupanca.getTitular());
+            printWriter.println("Valor simulado: R$" + valor);
+            printWriter.println("Rendimento em " + dias + " dias: R$" + rendimento);
+
+            printWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public static void gerarRelatorioNumContasAgencia(Gerente gerente) {
+        String filename = "relatorio_num_contas_agencia_" + gerente.getNome() + ".txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            // Lógica para contar o número de contas na agência do gerente
+        } catch (IOException e) {
+            System.err.println("Erro ao gerar o relatório: " + e.getMessage());
+        }
+    }
+
+    public static void gerarRelatorioTributacaoPoupanca(ContaPoupanca contaPoupanca) {
+        String filename = "relatorio_tributacao_" + contaPoupanca.getTitular() + ".txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            double totalTaxaSaque = contaPoupanca.getNumSaques() * 0.10;
+            double totalTaxaDeposito = contaPoupanca.getNumDepositos() * 0.10;
+            double totalTaxas = totalTaxaSaque + totalTaxaDeposito;
+
+            writer.println("### Relatório de Tributação da Conta Poupança ###");
+            writer.println("Total gasto em taxas de saque: R$" + totalTaxaSaque);
+            writer.println("Total gasto em taxas de depósito: R$" + totalTaxaDeposito);
+            writer.println("Total de taxas pagas: R$" + totalTaxas);
+        } catch (IOException e) {
+            System.err.println("Erro ao gerar o relatório: " + e.getMessage());
+        }
+    }
+
+    public static void gerarRelatorioRendimentoInvestimento(ContaInvestimento contaInvestimento) {
+        String filename = "relatorio_rendimento_" + contaInvestimento.getTitular() + ".txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            double rendimento = contaInvestimento.calcularRendimento();
+
+            writer.println("### Relatório de Rendimento do Investimento ###");
+            writer.println("Rendimento do investimento: R$" + rendimento);
+        } catch (IOException e) {
+            System.err.println("Erro ao gerar o relatório: " + e.getMessage());
+        }
+    }
+    
+}
+
+

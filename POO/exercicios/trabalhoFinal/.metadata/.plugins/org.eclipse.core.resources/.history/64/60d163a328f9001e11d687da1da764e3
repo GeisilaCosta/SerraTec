@@ -1,0 +1,24 @@
+package trabalhoFinal;
+
+public abstract class Funcionario {
+	private String senha;
+	private String cpf;
+	public Funcionario(String senha, String cpf) {
+		super();
+		this.senha = senha;
+		this.cpf = cpf;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+}

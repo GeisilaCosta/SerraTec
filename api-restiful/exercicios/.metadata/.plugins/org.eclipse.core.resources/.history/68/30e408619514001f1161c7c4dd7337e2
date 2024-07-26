@@ -1,0 +1,18 @@
+package br.com.serratec.excepition;
+
+
+package br.com.serratec.exception;
+
+public class ConfirmaSenhaException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 10149967706264024L;
+
+	public ConfirmaSenhaException(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+}

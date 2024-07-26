@@ -1,0 +1,11 @@
+1713034637757	Rename type 'OperacoesConta'
+1713034668224	Encapsulate field 'agenciaResponsavel'
+1713034726087	Rename type 'Cargo'
+1713034744925	Rename type 'TipoConta'
+1713035203881	Delete element
+1713035263965	Delete element
+1713036659755	Encapsulate field 'funcionarioLogado'
+1713036666969	Encapsulate field 'scanner'
+1713036675047	Encapsulate field 'clienteLogado'
+1713039015289	Delete element
+1713044313006	Encapsulate field 'scanner'

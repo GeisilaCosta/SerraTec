@@ -1,0 +1,69 @@
+package trabalhoFinal;
+
+import java.util.List;
+import java.io.*;
+import utilitarios.utils;
+
+public class ContaCorrente extends Conta {
+	
+private static int contadorDeContasC = 1; //contar as contas criadas
+private int numeroConta;
+private Double saldo;
+
+
+public ContaCorrente(Cliente cliente, int identificadorAgencia, TipoContaEnun tipoConta, double saldo,
+		List<String> historico, int numeroConta, Double saldo2) {
+	super(cliente, identificadorAgencia, tipoConta, saldo, historico);
+	this.numeroConta = numeroConta;
+	saldo = saldo2;
+}
+
+public static int getContadorDeContasC() {
+	return contadorDeContasC;
+}
+
+public static void setContadorDeContasC(int contadorDeContasC) {
+	ContaCorrente.contadorDeContasC = contadorDeContasC;
+}
+
+public int getNumeroConta() {
+	return numeroConta;
+}
+
+public void setNumeroConta(int numeroConta) {
+	this.numeroConta = numeroConta;
+}
+
+public Double getSaldo() {
+	return saldo;
+}
+
+public void setSaldo(Double saldo) {
+	this.saldo = saldo;
+}
+
+public String toString() { 
+	return
+	"\nSaldo: " + utils.doubleToString(this.getSaldo());
+}
+
+@Override
+public void sacar(double valor) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void depositar(double valor) throws ValorInvalidoException {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void transferir(double valor, Conta destino) throws SaldoInsuficienteException, ValorInvalidoException {
+	// TODO Auto-generated method stub
+	
+}
+
+}
+

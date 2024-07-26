@@ -1,0 +1,28 @@
+package projetoBanco;
+
+public class Gerente extends Funcionario {
+   
+
+	public Gerente(String cpf, String senha, String cargo, String agenciaResponsavel) {
+		super(cpf, senha, "Gerente");
+		this.agenciaResponsavel = agenciaResponsavel;
+	}
+
+	public String getAgenciaResponsavel() {
+		return agenciaResponsavel;
+	}
+
+	public void setAgenciaResponsavel(String agenciaResponsavel) {
+		this.agenciaResponsavel = agenciaResponsavel;
+	}
+
+	private String agenciaResponsavel;
+
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		
+	}
+
+    // Implementação específica para Gerente
+}

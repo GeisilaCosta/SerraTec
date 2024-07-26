@@ -1,0 +1,15 @@
+2024-05-16 19:13:34.589866-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LANCAMENTOS_VENDAS" not found; SQL statement:
+drop table lancamentos_vendas [42102-224]
+2024-05-16 19:13:54.371927-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDEDOR" not found (this database is empty); SQL statement:
+select v1_0.codigo_vendedor,v1_0.comissao,v1_0.email,v1_0.nome,v1_0.salario from vendedor v1_0 [42104-224]
+2024-05-16 19:25:47.986188-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]ALL"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP ALL [42001-224]
+2024-05-16 19:25:55.920987-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]TABLES"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP TABLES [42001-224]
+2024-05-16 19:27:18.159571-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "VENDEDOR" not found (this database is empty); SQL statement:
+select v1_0.codigo_vendedor,v1_0.comissao,v1_0.email,v1_0.nome,v1_0.salario from vendedor v1_0 [42104-224]

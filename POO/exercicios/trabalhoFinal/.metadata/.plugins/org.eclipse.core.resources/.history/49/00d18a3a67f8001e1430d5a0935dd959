@@ -1,0 +1,36 @@
+package java2;
+
+public class Cliente extends Usuario {
+	private String nome;
+    private String cpf;
+    private double saldo;
+    
+    
+
+	public Cliente(String cpf, String senha, String nome, String cpf2, double saldo) {
+		super(cpf, senha);
+		this.nome = nome;
+		cpf = cpf2;
+		this.saldo = saldo;
+	}
+
+	public void realizarSaque() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void realizarDeposito() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void realizarTransferencia() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void exibirRelatorios() {
+		// TODO Auto-generated method stub
+		
+	}
+}

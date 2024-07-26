@@ -1,0 +1,61 @@
+package java1;
+
+public class Cliente {
+	private String senha;
+	private String CPF;
+	private double saldo;
+	
+	 // Construtor
+    public Cliente(String nome, String cpf, double saldoInicial) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.saldo = saldoInicial;
+    }
+    // Getter
+    public double getSaldo() {
+        return saldo;
+    }
+
+	 public String getSenha() {
+		return senha;
+	}
+	 public String getCPF() {
+		return CPF;
+	}
+
+
+	// Método para realizar um saque
+    public void sacar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+            System.out.println("Saque de R$" + valor + " realizado com sucesso.");
+        } else {
+            System.out.println("Saldo insuficiente para realizar o saque.");
+        }
+    }
+
+    // Método para realizar um depósito
+    public void depositar(double valor) {
+        saldo += valor;
+        System.out.println("Depósito de R$" + valor + " realizado com sucesso.");
+    }
+
+    // Método para realizar uma transferência
+    public void transferir(double valor, Cliente destinatario) {
+        if (saldo >= valor) {
+            saldo -= valor;
+            destinatario.depositar(valor);
+            System.out.println("Transferência de R$" + valor + " realizada para " + destinatario);
+        } else {
+            System.out.println("Saldo insuficiente para realizar a transferência.");
+        }
+    }
+
+   
+    
+ // Método para exibir o saldo atual da conta do cliente
+    public void exibirSaldo() {
+        System.out.println("Saldo atual: R$" + saldo);
+    }
+
+}

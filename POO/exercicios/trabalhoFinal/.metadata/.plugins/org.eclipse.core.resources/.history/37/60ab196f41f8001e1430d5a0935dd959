@@ -1,0 +1,8 @@
+package java1;
+
+public abstract class Conta {
+	  private String CPF;
+	  private double saldo;
+	  private String identificadorAgencia;
+
+}

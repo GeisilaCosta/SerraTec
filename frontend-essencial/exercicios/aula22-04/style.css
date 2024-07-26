@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(188, 203, 238);
+    font: 15pt Arial;
+}
+
+header{
+    color: aliceblue;
+    text-align: center;
+}
+
+    main{
+        background-color: aliceblue;
+        border-radius: 10px;
+        padding: 10px;
+        max-width: 500px;/*cresce e diminui de acordo*/
+        margin: auto;/*centraliza o conteúdo*/
+        margin-top: 100px;
+        margin-bottom: 100px;
+        box-shadow: 5px 5px 1px black;
+        max-height: 200px;
+        overflow-y: scroll; /* barra de rolagem*/
+
+    }
+    section{
+        background-color: rgb(135, 195, 248);
+        padding: 10px;
+    }
+        #section-2{
+            background-color: rgb(233, 178, 106);
+        }
+
+        .section-class{
+            background-color: chartreuse;
+        }
+
+footer{
+    background-color: rgb(149, 149, 236);
+    color: aliceblue;
+    font-style: italic;
+    margin-top: 22px;
+    box-shadow: 5px 5px 0.2px black;
+    text-align: center;
+    }

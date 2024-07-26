@@ -1,0 +1,5 @@
+package projetoBanco;
+
+public class ContaCorrente extends Conta {
+
+}

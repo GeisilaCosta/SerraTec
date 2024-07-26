@@ -1,0 +1,30 @@
+package planoSaude;
+
+public class Medico extends Plano {
+	private String nome;
+	private int crm;
+	
+	public Medico(String empresa, String nome, int crm) {
+		super(empresa);
+		this.nome = nome;
+		this.crm = crm;
+	}
+	@Override
+	public String ToString() {
+		return super.toString() +"Medico:" + nome;
+	}
+	public String getNome() {
+		return nome;
+	}
+	
+	public int getCrm() {
+		return crm;
+	}
+	
+	@Override
+	public double calcularPagamento() {
+		return valorPago = super.calcularPagamento() *1.10;
+	}
+	
+	}
+}

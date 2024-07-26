@@ -1,0 +1,6 @@
+2024-05-16 15:02:13.608069-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table tb_products (id_product uuid not null, name varchar(255), [*]value numeric(38,2), primary key (id_product))"; expected "identifier"; SQL statement:
+create table tb_products (id_product uuid not null, name varchar(255), value numeric(38,2), primary key (id_product)) [42001-224]
+2024-05-16 15:05:30.385422-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table tb_products ([*]value numeric(38,2), id_product uuid not null, name varchar(255), primary key (id_product))"; expected "identifier"; SQL statement:
+create table tb_products (value numeric(38,2), id_product uuid not null, name varchar(255), primary key (id_product)) [42001-224]

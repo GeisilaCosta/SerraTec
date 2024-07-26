@@ -1,0 +1,36 @@
+package trabalhoFinal;
+
+public abstract class Conta extends Usuarios { // nao sera instanciada
+
+	private int identificadorAgencia;
+	private TipoContaEnun tipoConta;
+	private TiposUsuariosEnun tipoUsuario;
+	
+	public Conta(String nome, String senha, String cpf, TiposUsuariosEnun tipoUsuarios, int identificadorAgencia,
+			TipoContaEnun tipoConta, TiposUsuariosEnun tipoUsuario) {
+		super(nome, senha, cpf, tipoUsuarios);
+		this.identificadorAgencia = identificadorAgencia;
+		this.tipoConta = tipoConta;
+		this.tipoUsuario = tipoUsuario;
+	}
+	public int getIdentificadorAgencia() {
+		return identificadorAgencia;
+	}
+	public void setIdentificadorAgencia(int identificadorAgencia) {
+		this.identificadorAgencia = identificadorAgencia;
+	}
+	public TipoContaEnun getTipoConta() {
+		return tipoConta;
+	}
+	public void setTipoConta(TipoContaEnun tipoConta) {
+		this.tipoConta = tipoConta;
+	}
+	public TiposUsuariosEnun getTipoUsuario() {
+		return tipoUsuario;
+	}
+	public void setTipoUsuario(TiposUsuariosEnun tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
+	
+}

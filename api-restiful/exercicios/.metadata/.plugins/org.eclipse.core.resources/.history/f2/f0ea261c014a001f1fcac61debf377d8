@@ -1,0 +1,5 @@
+spring.application.name=cardapio
+spring.profiles.active= prod
+spring.jpa.show-sql= true
+spring.jpa.hibernate.ddl-auto= create
+spring.jackson.deserialization.fail-on-unknown-properties=true

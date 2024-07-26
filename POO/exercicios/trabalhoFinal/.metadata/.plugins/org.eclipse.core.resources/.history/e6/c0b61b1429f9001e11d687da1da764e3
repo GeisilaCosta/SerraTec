@@ -1,0 +1,20 @@
+package trabalhoFinal;
+
+public class Presidente extends Funcionario {
+	private String cargo = "presidente";
+
+	public Presidente(String senha, String cpf, String cargo) {
+		super(senha, cpf);
+		this.cargo = cargo;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	
+
+}

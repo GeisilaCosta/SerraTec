@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pagina de compra</title>
+    <link rel="stylesheet" href="carrinho.css" />
+  </head>
+  <body>
+    <div id="mensagem">
+        <button>
+            <a href="carrinho.html">voltar para a home</a>
+        </button>
+        <h1>bem vindo ao seu Carrinho</h1>
+    </div>
+
+    <div id="carrinho"></div>
+    <button id="finalizar">Finalizar Compra</button>
+
+    <script src="carrinho.js"></script>
+    <script>
+        // Recupera os dados do carrinho do localStorage
+        var carrinho = JSON.parse(localStorage.getItem('carrinho')) || {};
+
+        // Exibe os produtos adicionados ao carrinho
+        var divCarrinho = document.getElementById('carrinho');
+        for (var id in carrinho) {
+            var produto = document.createElement('div');
+            produto.innerHTML = `
+                <div class="produto" data-id="${id}" data-preco="${carrinho[id].preco}">
+                    <img src="./img/Captura de tela 2024-04-30 202513.png" alt="Imagem do Produto" width="200">
+                    <h2>Nome do Produto</h2>
+                    <p>Descrição do produto.</p>
+                    <p>Preço: R$<span class="preco">${carrinho[id].preco}</span></p>
+                    <p>Quantidade: <span class="quantidade">${carrinho[id].quantidade}</span></p>
+                    <button class="aumentar">+</button>
+                    <button class="diminuir">-</button>
+                    <div class="icones">
+                        <button class="like">❤️ Curtir</button>
+                        <button class="remover">🛒 Remover do Carrinho</button>
+                    </div>
+                </div>
+            `;
+            divCarrinho.appendChild(produto);
+        }
+
+        // Calcula o total da compra quando o botão "Finalizar Compra" é clicado
+        document.getElementById('finalizar').addEventListener('click', function() {
+            alert('Total da compra: R$' + calcularTotal().toFixed(2));
+        });
+
+        // Adiciona um evento de clique a cada botão "Aumentar"
+        document.querySelectorAll('.aumentar').forEach(function(botao) {
+            botao.addEventListener('click', function() {
+                var id = this.parentElement.dataset.id;
+                carrinho[id].quantidade += 1;
+                localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o carrinho no localStorage
+                this.previousElementSibling.textContent = carrinho[id].quantidade; // Atualiza a quantidade exibida
+            });
+        });
+
+        // Adiciona um evento de clique a cada botão "Diminuir"
+        document.querySelectorAll('.diminuir').forEach(function(botao) {
+            botao.addEventListener('click', function() {
+                var id = this.parentElement.dataset.id;
+                if (carrinho[id].quantidade > 1) {
+                    carrinho[id].quantidade -= 1;
+                    localStorage.setItem('carrinho', JSON.stringify(carrinho)); // Atualiza o carrinho no localStorage
+                    this.nextElementSibling.textContent = carrinho[id].quantidade; // Atualiza a quantidade exibida
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

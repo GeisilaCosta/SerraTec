@@ -1,0 +1,43 @@
+package banco;
+
+class Banco {
+    private List<Cliente> clientes;
+    private List<Funcionario> funcionarios;
+    private List<Conta> contas;
+
+    public Banco() {
+        clientes = new ArrayList<>();
+        funcionarios = new ArrayList<>();
+        contas = new ArrayList<>();
+    }
+
+    public void adicionarCliente(Cliente cliente) {
+        clientes.add(cliente);
+    }
+
+    public void adicionarFuncionario(Funcionario funcionario) {
+        funcionarios.add(funcionario);
+    }
+
+    public void adicionarConta(Conta conta) {
+        contas.add(conta);
+    }
+
+    public Cliente autenticarCliente(String cpf, String senha) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf().equals(cpf) && cliente.getSenha().equals(senha)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public Funcionario autenticarFuncionario(String cpf, String senha) {
+        for (Funcionario funcionario : funcionarios) {
+            if (funcionario.getCpf().equals(cpf) && funcionario.getSenha().equals(senha)) {
+                return funcionario;
+            }
+        }
+        return null;
+    }
+}

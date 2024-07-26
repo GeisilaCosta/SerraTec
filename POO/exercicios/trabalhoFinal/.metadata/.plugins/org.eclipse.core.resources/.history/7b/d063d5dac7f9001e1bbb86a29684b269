@@ -1,0 +1,24 @@
+package banco;
+
+public class Gerente extends Funcionario {
+	    private String agenciaResponsavel;
+
+	    public Gerente(String cpf, String senha, String agenciaResponsavel) {
+	        super(cpf, senha, Cargo.GERENTE);
+	        this.setAgenciaResponsavel(agenciaResponsavel);
+	    }
+
+	    public void relatorioContasAgencia() {
+	        // Implementação do relatório de contas da agência
+	    }
+
+		public String getAgenciaResponsavel() {
+			return agenciaResponsavel;
+		}
+
+		public void setAgenciaResponsavel(String agenciaResponsavel) {
+			this.agenciaResponsavel = agenciaResponsavel;
+		}
+	}
+
+

@@ -1,0 +1,20 @@
+package trabalhoFinal;
+
+public class Diretor extends Funcionario{
+	private String cargo = "diretor";
+
+	public Diretor(String senha, String cpf, String cargo) {
+		super(senha, cpf);
+		this.cargo = cargo;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+	
+}

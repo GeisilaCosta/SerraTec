@@ -1,0 +1,9 @@
+package projetoBanco;
+
+public class ContaCorrente extends Conta {
+
+	public ContaCorrente(String cpfTitular, double saldo, String agencia, String tipo) {
+		super(cpfTitular, saldo, agencia, tipo);
+	}
+
+}

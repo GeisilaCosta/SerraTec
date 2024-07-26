@@ -1,0 +1,12 @@
+package trabalhoFinal;
+
+public abstract class Funcionario extends Usuarios  {
+
+
+	public Funcionario(String nome, String senha, String cpf, TiposUsuariosEnun tipoUsuarios, String cargo) {
+		super(nome, senha, cpf, tipoUsuarios);
+
+	}
+
+
+}

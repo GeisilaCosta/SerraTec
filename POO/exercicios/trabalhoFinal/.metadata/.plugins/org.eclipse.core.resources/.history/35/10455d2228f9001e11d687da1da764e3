@@ -1,0 +1,23 @@
+package trabalhoFinal;
+
+public class Cliente extends Usuarios {
+	private static int counter = 1;  //contar a cada cliente criado
+	private TipoContaEnun tipo;
+	public Cliente(String nome, String senha, String cpf, TipoContaEnun tipo) {
+		super(nome, senha, cpf);
+		this.tipo = tipo;
+	}
+	public static int getCounter() {
+		return counter;
+	}
+	public static void setCounter(int counter) {
+		Cliente.counter = counter;
+	}
+	public TipoContaEnun getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoContaEnun tipo) {
+		this.tipo = tipo;
+	}
+	
+}

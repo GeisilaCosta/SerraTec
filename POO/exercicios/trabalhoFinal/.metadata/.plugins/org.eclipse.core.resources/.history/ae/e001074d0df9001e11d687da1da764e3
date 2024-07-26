@@ -1,0 +1,53 @@
+package trabalhoFinal;
+
+public abstract class Conta { 
+	private String cpf; //relacionar conta com usuario
+	private double saldo;
+	private String identificadorAgencia;
+	private TipoConta tipo;
+	
+	public Conta(String cpf, double saldo, String identificadorAgencia, TipoConta tipo ) {
+		super();
+		this.cpf = cpf;
+		this.saldo = saldo;
+		this.identificadorAgencia = identificadorAgencia;
+		this.tipo = tipo;
+	}
+	
+	public  TipoConta getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(TipoConta tipo) {
+		this.tipo = tipo;
+	}
+
+
+	public String getCpfTitular() {
+		return cpf;
+	}
+
+	public void setCpfTitular(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public String getIdentificadorAgencia() {
+		return identificadorAgencia;
+	}
+
+	public void setIdentificadorAgencia(String identificadorAgencia) {
+		this.identificadorAgencia = identificadorAgencia;
+	}
+
+	
+
+}

@@ -1,0 +1,23 @@
+body{
+    background-color: rgb(199, 198, 198);
+}
+
+button{
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 20%;
+    background-color: rgba(95, 8, 235, 0.267);
+        width: 40%;
+        height: 70px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.3s ease; /* Adiciona uma transição suave */
+}
+button:hover{
+    transform: scale(1.1); /* Aumenta o tamanho do botão em 10% */
+}

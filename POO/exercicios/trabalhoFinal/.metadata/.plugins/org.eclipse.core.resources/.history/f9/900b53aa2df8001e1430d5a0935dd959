@@ -1,0 +1,7 @@
+package java1;
+
+public class Cliente {
+	private String senha;
+	private String CPF;
+	private String identificadorAgencia;
+}

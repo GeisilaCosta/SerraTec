@@ -1,0 +1,160 @@
+* {
+font-family: "Roboto Slab", serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/*Cabeçalho*/
+.cabecalho .container {
+display: flex;
+justify-content: space-between;
+}
+
+.container {
+max-width: 900px;
+margin: auto;
+padding: 15px;
+}
+
+/* Menu */
+
+.menu {
+margin-top: 10px;
+}
+
+.menu ul li {
+list-style: none;
+display: inline-block;
+}
+
+.menu ul li a {
+color: #1a1a1a;
+margin: 0 10px;
+text-decoration: none;
+font-size: 17px;
+}
+
+.menu ul li a:hover {
+color: #ff8000;
+}
+
+/*Título*/
+main .titulo {
+width: 100%;
+background-color: #ff8000;
+padding: 15px;
+}
+
+main .titulo h1 {
+color: #fff;
+text-align: center;
+font-size: 48px;
+text-transform: uppercase;
+}
+
+.modulo {
+width: 100%;
+padding: 50px 0;
+}
+
+.sobre {
+background-color: #ddd;
+}
+
+.subtitulo {
+font-size: 32px;
+text-align: center;
+text-transform: uppercase;
+padding-bottom: 32px;
+}
+
+.container-btn {
+margin-top: 30px;
+display: flex;
+justify-content: center;
+}
+
+.btn-saiba-mais {
+background-color: #ff8000;
+padding: 15px;
+border: none;
+border-radius: 5px;
+transition: transform 0.3s;
+}
+
+.btn-saiba-mais:hover {
+transform: scale(1.2);
+filter: brightness(0.95);
+}
+
+.btn-saiba-mais a {
+text-align: center;
+text-decoration: none;
+color: #fff;
+font-size: 20px;
+}
+
+/*Tabela */
+
+.tabela {
+width: 100%;
+border-collapse: collapse;
+}
+
+.tabela thead {
+background-color: #333;
+color: #fff;
+}
+.tabela td {
+border: 1px solid #333;
+padding: 7px;
+}
+
+/* Modulo locais de interesse*/
+.lista-locais ul {
+display: flex;
+justify-content: center;
+}
+
+.lista-locais ul li {
+list-style: none;
+display: inline-block;
+color: #fff;
+background-color: #ff8000;
+padding: 7px 12px;
+margin: 5px;
+border-radius: 5px;
+}
+
+/* Modulo mapa*/
+.mapa,
+.notaveis {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.mapa img {
+max-width: 70%;
+}
+
+.rodape {
+width: 100%;
+
+padding: 50px 0;
+background-color: #333;
+background-image: url("./img/padrao-fundo-rodape.png");/*posiciona uma imagem transparente por cima do estilo*/
+border-top: 6px solid #ff8000;
+text-align: center;
+clear: both;
+}
+
+.rodape .logo {
+margin-bottom: 30px;
+}
+
+.rodape .creditos {
+color: #fff;
+}

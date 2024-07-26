@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');/*importando a font Quicksand*/
+
+:root{  /*variaveis globais*/
+    --cor-primaria: #0f74BC;
+    --cor-secundaria: #0c609C;
+    --cor-terciaria:#0A5388;
+    --cor-background:#FFF;
+}
+
+body{  /*css reset*/
+    margin: 0;
+    padding: o;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;/*font importada do link acima*/
+}

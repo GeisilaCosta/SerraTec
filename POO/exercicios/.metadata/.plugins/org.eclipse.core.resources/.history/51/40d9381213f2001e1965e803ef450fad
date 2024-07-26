@@ -1,0 +1,5 @@
+package plano;
+
+public abstract final class Plano {
+
+}

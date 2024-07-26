@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 95vh;
+    justify-content: space-between;
+}
+
+.header {
+    background-color: rgb(255, 101, 101); 
+    height: 20vh; 
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 65vh; 
+}
+
+
+
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%; /* Ajuste conforme necessário */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content-item1 {
+    background-color: aqua;
+    height: 60vh;
+    width: 32%
+}
+.content-item2 {
+    background-color: aqua;
+    height: 60vh;
+    width: 32%
+}
+.content-item3 {
+    background-color: aqua;
+    height: 60vh;
+    width: 32%;
+
+}
+
+.footer {
+    display: flex;
+    background-color: aqua;
+    height: 15%; 
+}

@@ -1,0 +1,266 @@
+package projetoBanco;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class SistemaInterno {
+    private Map<String, Cliente> clientes;
+    private Map<String, Funcionario> funcionarios;
+    private static Scanner scanner;
+
+    public SistemaInterno() {
+        this.clientes = new HashMap<>();
+        this.funcionarios = new HashMap<>();
+        SistemaInterno.scanner = new Scanner(System.in);
+    }
+
+    public static void main(String[] args) {
+        SistemaInterno sistema = new SistemaInterno();
+        sistema.executar();
+    }
+
+    public void executar() {
+        carregarClientes(); // Carregar clientes do arquivo de texto
+        carregarFuncionarios(); // Carregar funcionários do arquivo de texto
+
+        System.out.println("Bem-vindo ao Sistema Bancário!");
+
+        // Menu de login
+        System.out.print("CPF: ");
+        String cpf = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        // Verificar se é Cliente ou Funcionário
+        if (clientes.containsKey(cpf)) {
+            Cliente cliente = clientes.get(cpf);
+            if (cliente.getSenha().equals(senha)) {
+                menuCliente(cliente);
+            } else {
+                System.out.println("Senha incorreta.");
+            }
+        } else if (funcionarios.containsKey(cpf)) {
+            Funcionario funcionario = funcionarios.get(cpf);
+            if (funcionario.getSenha().equals(senha)) {
+                menuFuncionario(funcionario);
+            } else {
+                System.out.println("Senha incorreta.");
+            }
+        } else {
+            System.out.println("CPF não cadastrado.");
+        }
+    }
+
+    private void menuCliente(Cliente cliente) {
+        System.out.println("Bem-vindo, " + cliente.getNome() + "!");
+
+        boolean sair = false;
+        while (!sair) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Movimentações na Conta");
+            System.out.println("2. Relatórios");
+            System.out.println("3. Sair");
+            System.out.print("Escolha uma opção: ");
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer do scanner
+
+            switch (opcao) {
+                case 1:
+                    movimentacoesConta(cliente);
+                    break;
+                case 2:
+                    relatorios(cliente);
+                    break;
+                case 3:
+                    sair = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+            }
+        }
+    }
+
+    private void movimentacoesConta(Cliente cliente) {
+        System.out.println("\nMovimentações na Conta:");
+        System.out.println("1. Saque");
+        System.out.println("2. Depósito");
+        System.out.println("3. Transferência para outra conta");
+        System.out.println("4. Voltar");
+
+        System.out.print("Escolha uma opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        switch (opcao) {
+            case 1:
+                System.out.print("Informe o valor do saque: ");
+                double valorSaque = scanner.nextDouble();
+                cliente.sacar(valorSaque);
+                break;
+            case 2:
+                System.out.print("Informe o valor do depósito: ");
+                double valorDeposito = scanner.nextDouble();
+                cliente.depositar(valorDeposito);
+                break;
+            case 3:
+                System.out.print("Informe o CPF do destinatário: ");
+                String cpfDestinatario = scanner.nextLine();
+                System.out.print("Informe o valor da transferência: ");
+                double valorTransferencia = scanner.nextDouble();
+                cliente.transferir(valorTransferencia, cpfDestinatario);
+                break;
+            case 4:
+                return;
+            default:
+                System.out.println("Opção inválida.");
+        }
+    }
+
+
+    private void relatorios(Cliente cliente) {
+        System.out.println("\nRelatórios:");
+        System.out.println("1. Saldo");
+        System.out.println("2. Relatório de tributação da conta corrente");
+        System.out.println("3. Relatório de Rendimento da poupança");
+        System.out.println("4. Desafio: Seguro de vida");
+        System.out.println("5. Voltar");
+
+        System.out.print("Escolha uma opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        switch (opcao) {
+            case 1:
+                System.out.println("Saldo: R$" + cliente.getSaldo());
+                break;
+            case 2:
+                cliente.gerarRelatorioTributacao();
+                break;
+            case 3:
+                cliente.gerarRelatorioRendimento();
+                break;
+            case 4:
+                cliente.contratarSeguroVida();
+                break;
+            case 5:
+                return;
+            default:
+                System.out.println("Opção inválida.");
+        }
+    }
+
+
+
+    private void menuFuncionario(Funcionario funcionario) {
+        System.out.println("Bem-vindo, " + funcionario.getCargo() + "!");
+
+        boolean sair = false;
+        while (!sair) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Movimentações e Informações da Conta");
+            System.out.println("2. Relatórios");
+            System.out.println("3. Sair");
+            System.out.print("Escolha uma opção: ");
+            int opcao = scanner.nextInt();
+            scanner.nextLine(); // Limpar o buffer do scanner
+
+            switch (opcao) {
+                case 1:
+                    movimentacoesInformacoesConta((Gerente) funcionario);
+                    break;
+                case 2:
+                    relatoriosFuncionario(funcionario);
+                    break;
+                case 3:
+                    sair = true;
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+            }
+        }
+    }
+
+    private void movimentacoesInformacoesConta(Gerente gerente) {
+        System.out.println("\nMovimentações e Informações da Conta:");
+        System.out.println("1. Saque");
+        System.out.println("2. Depósito");
+        System.out.println("3. Transferência para outra conta");
+        System.out.println("4. Relatório do número de contas na mesma agência");
+        System.out.println("5. Voltar");
+
+        System.out.print("Escolha uma opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        switch (opcao) {
+            case 1:
+                // Implementar saque
+                break;
+            case 2:
+                // Implementar depósito
+                break;
+            case 3:
+                // Implementar transferência
+                break;
+            case 4:
+                // Implementar relatório de número de contas na mesma agência
+                break;
+            case 5:
+                return;
+            default:
+                System.out.println("Opção inválida.");
+        }
+    }
+
+    private void relatoriosFuncionario(Funcionario funcionario) {
+        System.out.println("\nRelatórios:");
+        System.out.println("1. Saldo");
+        System.out.println("2. Relatório de tributação da conta corrente");
+        System.out.println("3. Relatório de Rendimento da poupança");
+        System.out.println("4. Relatório com as informações de clientes");
+        System.out.println("5. Relatório com o valor total do capital armazenado no banco");
+        System.out.println("6. Voltar");
+
+        System.out.print("Escolha uma opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer do scanner
+
+        switch (opcao) {
+            case 1:
+                // Implementar relatório de saldo
+                break;
+            case 2:
+                // Implementar relatório de tributação
+                break;
+            case 3:
+                // Implementar relatório de rendimento
+                break;
+            case 4:
+                // Implementar relatório de informações de clientes
+                break;
+            case 5:
+                // Implementar relatório de valor total do capital armazenado no banco
+                break;
+            case 6:
+                return;
+            default:
+                System.out.println("Opção inválida.");
+        }
+    }
+
+
+
+    private void carregarClientes() {
+        // Implementar carregamento de clientes do arquivo de texto
+    }
+
+    private void carregarFuncionarios() {
+        // Implementar carregamento de funcionários do arquivo de texto
+    }
+
+    // Outros métodos conforme necessário
+}
+
+

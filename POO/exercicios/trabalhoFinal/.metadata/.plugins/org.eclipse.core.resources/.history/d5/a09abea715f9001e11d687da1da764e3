@@ -1,0 +1,10 @@
+package trabalhoFinal;
+
+public class ContaPoupanca extends Conta{
+	public EnunTipoConta tipo;
+
+	public ContaPoupanca(String cpfTitular, double saldo, String identificadorAgencia, EnunTipoConta tipo) {
+		super(cpfTitular, saldo, identificadorAgencia, EnunTipoConta.CONTA_CORRENTE);
+	
+	}
+}

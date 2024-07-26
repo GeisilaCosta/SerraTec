@@ -1,0 +1,18 @@
+package projetoBanco;
+
+public class Presidente extends Funcionario {
+
+
+    public Presidente(String cpf, String senha, String cargo) {
+		super(cpf, senha, cargo);
+	}
+
+	// Implementação específica para Presidente
+
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

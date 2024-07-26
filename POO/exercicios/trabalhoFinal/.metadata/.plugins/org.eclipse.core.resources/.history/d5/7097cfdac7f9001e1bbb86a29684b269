@@ -1,0 +1,25 @@
+package banco;
+
+public class Funcionario {
+	private String cpf;
+    private String senha;
+    private Cargo cargo;
+
+    public Funcionario(String cpf, String senha, Cargo cargo) {
+        this.cpf = cpf;
+        this.senha = senha;
+        this.cargo = cargo;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+}

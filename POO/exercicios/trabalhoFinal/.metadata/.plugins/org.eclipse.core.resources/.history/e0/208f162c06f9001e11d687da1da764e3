@@ -1,0 +1,11 @@
+package trabalhoFinal;
+
+public class ContaCorrente extends Conta {
+	private TipoConta tipo;
+	
+	public ContaCorrente(String cpf, double saldo, String identificadorAgencia) {
+		super(cpf, saldo, identificadorAgencia, getTipo());
+	}
+
+	
+}

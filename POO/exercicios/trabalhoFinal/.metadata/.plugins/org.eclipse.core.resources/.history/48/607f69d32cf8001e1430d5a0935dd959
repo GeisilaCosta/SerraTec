@@ -1,0 +1,10 @@
+package java1;
+
+public sealed class SistemaInterno {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,54 @@
+package banco;
+
+public class RealizarTransacoes {
+	private static void realizarSaque() {
+	    System.out.println("Digite o valor do saque:");
+	    double valor = Double.parseDouble(scanner.nextLine());
+	    
+	    if (valor <= 0) {
+	        System.out.println("Valor inválido. Tente novamente.");
+	        realizarSaque();
+	        return;
+	    }
+
+	    if (banco.sacar(funcionarioLogado, valor)) {
+	        System.out.println("Saque realizado com sucesso.");
+	    } else {
+	        System.out.println("Saldo insuficiente para realizar o saque.");
+	    }
+	}
+
+	private static void realizarDeposito() {
+	    System.out.println("Digite o valor do depósito:");
+	    double valor = Double.parseDouble(scanner.nextLine());
+	    
+	    if (valor <= 0) {
+	        System.out.println("Valor inválido. Tente novamente.");
+	        realizarDeposito();
+	        return;
+	    }
+
+	    banco.depositar(funcionarioLogado, valor);
+	    System.out.println("Depósito realizado com sucesso.");
+	}
+
+	private static void realizarTransferencia() {
+	    System.out.println("Digite o CPF do destinatário:");
+	    String cpfDestinatario = scanner.nextLine();
+	    System.out.println("Digite o valor da transferência:");
+	    double valor = Double.parseDouble(scanner.nextLine());
+	    
+	    if (valor <= 0) {
+	        System.out.println("Valor inválido. Tente novamente.");
+	        realizarTransferencia();
+	        return;
+	    }
+
+	    if (banco.transferir(funcionarioLogado, cpfDestinatario, valor)) {
+	        System.out.println("Transferência realizada com sucesso.");
+	    } else {
+	        System.out.println("Saldo insuficiente para realizar a transferência.");
+	    }
+	}
+
+}

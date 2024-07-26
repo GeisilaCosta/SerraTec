@@ -1,0 +1,42 @@
+package banco;
+
+public class SistemaInterno {
+
+	public static void main(String[] args) {
+		 // Aqui você pode testar o sistema
+
+        // Exemplo de criação de um banco
+        Banco banco = new Banco();
+
+        // Exemplo de criação de clientes
+        Cliente cliente1 = new Cliente("12345678901", "senha123");
+        Cliente cliente2 = new Cliente("98765432109", "senha456");
+
+        // Exemplo de criação de contas
+        Conta conta1 = new ContaCorrente(cliente1.getCpf(), "001");
+        Conta conta2 = new ContaPoupanca(cliente2.getCpf(), "002");
+
+        // Exemplo de adição de clientes e contas ao banco
+        banco.adicionarCliente(cliente1);
+        banco.adicionarCliente(cliente2);
+        banco.adicionarConta(conta1);
+        banco.adicionarConta(conta2);
+
+        // Exemplo de login de cliente
+        Cliente clienteLogado = banco.realizarLoginCliente("12345678901", "senha123");
+        if (clienteLogado != null) {
+            System.out.println("Login do cliente realizado com sucesso.");
+        } else {
+            System.out.println("CPF ou senha incorretos para o cliente.");
+        }
+
+        // Exemplo de login de funcionário
+        Funcionario funcionarioLogado = banco.realizarLoginFuncionario("123456789", "senha456");
+        if (funcionarioLogado != null) {
+            System.out.println("Login do funcionário realizado com sucesso.");
+        } else {
+            System.out.println("CPF ou senha incorretos para o funcionário.");
+        }
+    }
+
+}

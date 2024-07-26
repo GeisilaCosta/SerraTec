@@ -1,0 +1,70 @@
+package trabalhofinalIA;
+
+public class SistemaBancario {
+    private static Map<String, Cliente> clientes = new HashMap<>();
+    private static Map<String, Funcionario> funcionarios = new HashMap<>();
+    private static List<Conta> contas = new ArrayList<>();
+
+    public static void main(String[] args) {
+        // Aqui você pode carregar os dados do sistema a partir de um arquivo de texto
+        // Por simplicidade, vou adicionar alguns dados diretamente aqui
+        inicializarDados();
+
+        // Iniciar o sistema
+        iniciarSistema();
+    }
+
+    private static void inicializarDados() {
+        // Adicionar clientes
+        clientes.put("12345678901", new Cliente("12345678901", "senha123"));
+        clientes.put("98765432109", new Cliente("98765432109", "senha456"));
+
+        // Adicionar funcionários
+        funcionarios.put("11111111111", new Gerente("11111111111", "senhaGerente", "Agencia1"));
+        funcionarios.put("22222222222", new Diretor("22222222222", "senhaDiretor"));
+        funcionarios.put("33333333333", new Presidente("33333333333", "senhaPresidente"));
+
+        // Adicionar contas
+        contas.add(new ContaCorrente("12345678901", "Agencia1"));
+        contas.add(new ContaPoupanca("98765432109", "Agencia2"));
+    }
+
+    private static void iniciarSistema() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bem-vindo ao Sistema Bancário!");
+
+        // Autenticação do usuário
+        System.out.print("CPF: ");
+        String cpf = scanner.nextLine();
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        // Verificar se é cliente
+        Cliente cliente = clientes.get(cpf);
+        if (cliente != null && cliente.getSenha().equals(senha)) {
+            exibirMenuCliente();
+            return;
+        }
+
+        // Verificar se é funcionário
+        Funcionario funcionario = funcionarios.get(cpf);
+        if (funcionario != null && funcionario.getSenha().equals(senha)) {
+            exibirMenuFuncionario(funcionario);
+            return;
+        }
+
+        System.out.println("CPF ou senha inválidos. Tente novamente.");
+    }
+
+    private static void exibirMenuCliente() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Menu do Cliente:");
+        // Implemente as opções do menu para o cliente
+    }
+
+    private static void exibirMenuFuncionario(Funcionario funcionario) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Menu do " + funcionario.getCargo() + ":");
+        // Implemente as opções do menu para o funcionário
+    }
+}

@@ -1,0 +1,17 @@
+package banco;
+
+class ContaCorrente extends Conta {
+    private final double TAXA_SAQUE = 0.10;
+    private final double TAXA_DEPOSITO = 0.10;
+    private final double TAXA_TRANSFERENCIA = 0.20;
+
+    public ContaCorrente(String cpfTitular, String agencia) {
+        super(cpfTitular, agencia);
+    }
+
+    @Override
+    public double calcularTributacao() {
+        // Implementação da tributação específica para conta corrente
+        return 0.0;
+    }
+}

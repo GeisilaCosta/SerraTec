@@ -1,0 +1,46 @@
+package projetoBanco;
+
+public class Diretor extends Funcionario {
+
+	public Diretor(String cpf, String senha, String cargo) {
+		super(cpf, senha, "Diretor");
+	}
+
+	@Override
+	public void login() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+    // Implementação específica para Diretor
+	public void relatoriosConta() {
+	    super.relatoriosConta(); // Chamando método da classe pai (Gerente)
+
+	    // Opções adicionais para o Diretor
+	    System.out.println("e. Relatório de clientes (em ordem alfabética)");
+	    System.out.print("Opção: ");
+	    char opcao = scanner.nextLine().charAt(0);
+
+	    switch (opcao) {
+	        case 'e':
+	            relatorioClientes();
+	            break;
+	        default:
+	            System.out.println("Opção inválida.");
+	    }
+	}
+
+	public void relatorioClientes() {
+	    System.out.println("Relatório de clientes (em ordem alfabética):");
+	    Collections.sort(Clientes, new Comparator<Cliente>() {
+	        public int compare(Cliente c1, Cliente c2) {
+	            return c1.getNome().compareTo(c2.getNome());
+	        }
+	    });
+
+	    for (Cliente cliente : Clientes) {
+	        System.out.println("Nome: " + cliente.getNome() + ", CPF: " + cliente.getCPF() + ", Agência: " + cliente.getAgencia());
+	    }
+	}
+
+}

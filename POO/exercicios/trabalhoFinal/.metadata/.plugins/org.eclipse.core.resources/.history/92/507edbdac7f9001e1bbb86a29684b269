@@ -1,0 +1,5 @@
+package banco;
+
+public enum Cargo {
+	GERENTE, DIRETOR, PRESIDENTE
+}

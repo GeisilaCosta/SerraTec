@@ -1,0 +1,18 @@
+package aula;
+import aula.Medico;
+public class TesteMedico {
+
+	public static void main(String[] args) {
+		Medico medico1 = new Medico(12345, "Ana Maria",0 , 250);
+		Medico medico2 = new Medico(98765, "Antonio",0 , 300);
+		
+		medico1.pagamentoDinheiro(250);
+		medico2.pagamentoDinheiro(300);
+		
+		System.out.println(medico1);
+		System.out.println(medico2);
+		System.out.println("total de  Medico" + Medico.getTotalMedico());
+
+	}
+
+}

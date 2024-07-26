@@ -1,0 +1,27 @@
+package projetoBanco;
+
+import java.util.Map;
+
+public class SistemaInterno {
+    private Map<String, Cliente> clientes;
+    private Map<String, Funcionario> funcionarios;
+
+    // Construtor, getters e setters
+    public void loginCliente(String cpf, String senha) {
+        // Implementação do login para Cliente
+    }
+
+    public void loginFuncionario(String cpf, String senha) {
+        // Implementação do login para Funcionário
+    }
+
+    public void menuCliente(Cliente cliente) {
+        // Implementação do menu para Cliente
+    }
+
+    public void menuFuncionario(Funcionario funcionario) {
+        // Implementação do menu para Funcionário
+    }
+
+    // Outros métodos conforme necessário
+}

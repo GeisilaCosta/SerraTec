@@ -1,0 +1,39 @@
+package java1;
+import java.util.Scanner;
+
+public interface InterfaceLogin {
+	Scanner scanner = new Scanner(System.in);
+
+    // Popule o sistema com valores referentes a clientes, contas e funcionários
+    // (atribuição direta para fins de teste inicial)
+
+    boolean sair = false;
+
+    while (!sair) {
+        System.out.println("Bem-vindo ao Sistema Bancário!");
+        System.out.println("1. Login");
+        System.out.println("2. Registrar");
+        System.out.println("3. Sair");
+        System.out.print("Escolha uma opção: ");
+        int opcao = scanner.nextInt();
+
+        switch (opcao) {
+            case 1:
+                // Implemente a lógica de login
+                break;
+            case 2:
+                // Implemente a lógica de registro
+                break;
+            case 3:
+                sair = true;
+                break;
+            default:
+                System.out.println("Opção inválida. Tente novamente.");
+        }
+    }
+
+    System.out.println("Obrigado por usar o Sistema Bancário!");
+    scanner.close();
+}
+
+}

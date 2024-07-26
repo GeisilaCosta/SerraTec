@@ -1,0 +1,46 @@
+package planoSaude;
+
+public class PrincipalTestePlano {
+
+	public static void main(String[] args) {
+		Clinica clinica = new Clinica("Amil", "Checkup", "123.456.789/0001-56");
+		Medico medico = new Medico("Golden Cross", "Carlos da Silva", 123456);
+		Anestesia anestesia = new Anestesia("Amil", "Carla Costa", 123456, "Peridural");
+		ControlePagamento cp = new ControlePagamento();
+		
+		clinica.calcularPagamento();
+		medico.calcularPagamento();
+		anestesia.calcularPagamento();
+		
+		cp.calcularTotalPago(clinica);
+		cp.calcularTotalPago(medico);
+		cp.calcularTotalPago(anestesia);
+		
+		System.out.println(clinica.toString());
+		System.out.println(medico.toString());
+		System.out.println(anestesia.toString());
+		System.out.println("O total pago pelo plano: " + String.format("%.2f", cp.getTotalpago()));
+		}
+
+}
+/* EXERCICIO
+  1) Criar as classes, atributos, métodos, construtores, toString, getters e setters
+ 
+REVISÃO AULA ANTERIOR - HERANÇA
+
+Método calcularPagamento da classe Plano
+▪ O plano paga como valor inicial R$80,00 #valorPago de consulta para o médico, anestesista ou clínica.
+▪ O desconto inicial do valor de ISS #valorIss é de 5%
+O cálculo do pagamento do plano para um profissional é o valor pago com redução de 5% do valor do ISS que é
+descontado do valor pago.
+Método calcularPagamento da classe Medico e Anestesista
+▪ Para médicos o valor por consulta pago pelo plano de saúde terá acréscimo de 10% .
+▪ Para os anestesistas além dos 10% terá um acréscimo de mais R$ 1000,00
+Classe com o main
+▪ Criar a classe de teste com o nome TestePlano,
+▪ Criar um objeto Clinica, um Médico e outro Anestesista.
+▪ Chame o método calculaPagamento.
+▪ Exiba os dados do toString e o valor a ser pago pelo plano. 
+
+2)  Criar uma nova classe, com o nome ControlePagamento. Esta classe será responsável por totalizar todos os pagamentos realizados pelo
+plano de saúde. Neste exemplo não utilizaremos um atributo estático para acumular os totais. */

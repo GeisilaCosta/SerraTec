@@ -1,0 +1,15 @@
+package java2;
+
+public class MainSistemaBancario {
+
+	public static void main(String[] args) {
+		// Aqui você pode criar instâncias do SistemaInterno e começar a interagir com o sistema
+        SistemaInterno sistema = new SistemaInterno();
+        sistema.iniciarSistema();
+        
+        Banco banco = new Banco();
+        banco.fazerLogin("12345678910", "12345");
+
+	}
+
+}

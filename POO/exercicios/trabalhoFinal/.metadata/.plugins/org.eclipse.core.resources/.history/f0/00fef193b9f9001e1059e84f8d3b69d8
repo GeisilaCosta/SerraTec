@@ -1,0 +1,52 @@
+package trabalhoFinal;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class MenuPrincipal {
+	private static Map<String, Cliente> clientes = new HashMap<>();
+    private static List<Conta> contas = new ArrayList<>();
+
+    public static void main(String[] args) {
+        carregarClientes();
+        exibirMenu();
+    }
+
+    private static void carregarClientes() {
+        try (Scanner scanner = new Scanner(new File("clientes.txt"))) {
+            while (scanner.hasNextLine()) {
+                String[] dadosCliente = scanner.nextLine().split(",");
+                String cpf = dadosCliente[0];
+                String senha = dadosCliente[1];
+                double saldo = Double.parseDouble(dadosCliente[2]);
+                ContaCorrente conta = new ContaCorrente(null, 0, null, saldo, null, 0, saldo, saldo, saldo);
+                conta.depositar(saldo);
+                Cliente cliente = new Cliente(cpf, senha, conta);
+                clientes.put(cpf, cliente);
+                contas.add(conta);
+            }
+        } catch (FileNotFoundException | ValorInvalidoException e) {
+            System.out.println("Erro ao carregar clientes: " + e.getMessage());
+        }
+    }
+
+    private static void exibirMenu() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bem-vindo ao Sistema Bancário!");
+        System.out.print("CPF: ");
+        String cpf = scanner.nextLine();
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        Cliente cliente = clientes.get(cpf);
+        if (cliente != null && cliente.getSenha().equals(senha)) {
+            Conta conta = cliente.getConta();
+            System.out.println("Login efetuado com sucesso!");
+            System.out.println("Saldo atual: R$" + conta.getSaldo());
+            // Implemente o resto do menu aqui
+        } else {
+            System.out.println("CPF ou senha inválidos. Tente novamente.");
+        }
+    }
+}

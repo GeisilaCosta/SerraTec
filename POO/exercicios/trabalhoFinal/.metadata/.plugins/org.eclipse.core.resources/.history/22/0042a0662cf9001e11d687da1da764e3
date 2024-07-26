@@ -1,0 +1,19 @@
+package trabalhoFinal;
+
+public abstract class Funcionario extends Usuarios  {
+	private String cargo = "funcionario";
+
+	public Funcionario(String nome, String senha, String cpf, TiposUsuariosEnun tipoUsuarios, String cargo) {
+		super(nome, senha, cpf, tipoUsuarios);
+		this.cargo = cargo;
+	}
+
+	public String getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+	
+}

@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(137, 43, 226, 0.384);
+}
+H1{
+    text-align: center;
+    text-decoration-line: underline;
+}
+form {
+    margin: 0 auto;
+    width: 300px;
+}
+.radio-button {
+    margin: 10px 0;
+}
+.radio-button label {
+    margin-left: 5px;
+}

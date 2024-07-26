@@ -1,0 +1,59 @@
+package java1;
+
+import java.util.Scanner;
+
+public class SistemaBancario {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Popule o sistema com valores referentes a clientes, contas e funcionários
+        // a partir da leitura de um arquivo de texto ou atribua valores diretamente.
+
+        System.out.println("Bem-vindo ao Sistema Bancário!");
+        System.out.print("CPF: ");
+        String cpf = scanner.nextLine();
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+
+        // Verifique se o usuário é Cliente, Gerente, Diretor ou Presidente
+        // e exiba o menu apropriado.
+
+        // Exemplo de menu para Cliente:
+        if (ehCliente(cpf, senha)) {
+            System.out.println("Opções:");
+            System.out.println("a. Saque");
+            System.out.println("b. Depósito");
+            System.out.println("c. Transferência para outra conta");
+            System.out.println("d. Saldo");
+            // Implemente as ações do cliente aqui.
+        }
+
+        // Exemplo de menu para Gerente:
+        if (ehGerente(cpf, senha)) {
+            System.out.println("Opções:");
+            System.out.println("a. Cadastrar novo cliente");
+            System.out.println("b. Criar nova conta");
+            System.out.println("c. Relatórios");
+            // Implemente as ações do gerente aqui.
+        }
+
+        // Adicione outras verificações para Diretor e Presidente.
+
+        scanner.close();
+    }
+
+    // Exemplo de método para verificar se o usuário é Cliente
+    private static boolean ehCliente(String cpf, String senha) {
+        // Implemente a lógica de autenticação para clientes.
+        return true; // Exemplo: sempre retorna verdadeiro para fins de demonstração.
+    }
+
+    // Exemplo de método para verificar se o usuário é Gerente
+    private static boolean ehGerente(String cpf, String senha) {
+        // Implemente a lógica de autenticação para gerentes.
+        return true; // Exemplo: sempre retorna verdadeiro para fins de demonstração.
+    }
+}
+
+}

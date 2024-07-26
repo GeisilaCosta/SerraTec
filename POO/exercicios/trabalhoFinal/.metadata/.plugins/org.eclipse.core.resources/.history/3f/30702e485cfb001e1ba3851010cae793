@@ -1,0 +1,47 @@
+package projetoBanco;
+
+public class ContaPoupanca extends Conta implements operacao {
+
+	
+
+	public ContaPoupanca(String cpfTitular, double saldo, String agencia, TipoContaEnun tipo) {
+		super(cpfTitular, saldo, agencia, tipo);
+	}
+	 @Override
+	    public double getSaldo() {
+	        return saldo;
+	    }
+
+	 @Override
+	    public void realizarOperacao(double valor, String tipoOperacao) {
+	        if (tipoOperacao.equals("Saque")) {
+	            if (valor <= saldo) {
+	                saldo -= valor;
+	            } else {
+	                throw new IllegalArgumentException("Saldo insuficiente para saque.");
+	            }
+	        } else if (tipoOperacao.equals("Depósito")) {
+	            saldo += valor;
+	        }
+	    }
+	
+
+	@Override
+	public void sacar(double valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void depositar(double valor) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void transferir(double valor, Conta destino) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

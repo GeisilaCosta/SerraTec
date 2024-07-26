@@ -1,0 +1,28 @@
+body {
+    background-color: var(--cor-primaria);
+}
+
+img {
+    width: 550px;
+    height: 500px;
+}
+
+.logo h1{
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.box-login {
+    width: 600px;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid var(--cor-terciaria);
+    border-radius: 4px;
+    padding: 25px;
+    background-color: var(--cor-background);
+}
+#btn-entrar{
+    width: 100%;
+}

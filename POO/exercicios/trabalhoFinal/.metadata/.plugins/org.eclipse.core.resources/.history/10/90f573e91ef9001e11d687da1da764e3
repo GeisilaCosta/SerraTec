@@ -1,0 +1,76 @@
+package trabalhoFinal;
+
+public class Cliente {
+	private static int counter = 1;  //contar a cada cliente criado
+	
+	private String nome;
+	private String senha;
+	private String cpf;
+	private EnunTipoConta tipo;
+	
+	
+	public Cliente(String nome, String senha, String cpf, EnunTipoConta tipo) {
+		super();
+		this.nome = nome;
+		this.senha = senha;
+		this.cpf = cpf;
+		this.tipo = tipo;
+	}
+
+	public static int getCounter() {
+		return counter;
+	}
+
+
+	public static void setCounter(int counter) {
+		Cliente.counter = counter;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+
+	public String getCpf() {
+		return cpf;
+	}
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+	public EnunTipoConta getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(EnunTipoConta tipo) {
+		this.tipo = tipo;
+	}
+
+	//Colocar dentro de um tostring para apresentar os dados depois
+	public String toString() {
+		return "\nNome: " + this.getNome()+
+				"\nNome: " + this.getSenha()+
+				"\nNome: " + this.getCpf()+
+				"\nNome: " + this.getTipo();
+	}
+}

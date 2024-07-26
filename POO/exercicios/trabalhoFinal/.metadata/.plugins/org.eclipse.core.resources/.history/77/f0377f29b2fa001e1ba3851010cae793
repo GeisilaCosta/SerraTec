@@ -1,0 +1,30 @@
+package projetoBanco;
+
+public class ContaCorrente extends Conta implements Operacao {
+
+
+	public ContaCorrente(String cpfTitular, double saldo, String agencia, TipoContaEnun tipo) {
+		super(cpfTitular, saldo, agencia, tipo);
+	}
+
+	@Override
+	public void sacar(double valor) throws SaldoInsuficienteException, ValorInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void depositar(double valor) throws ValorInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void transferir(double valor, Conta destino) throws SaldoInsuficienteException, ValorInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

@@ -1,0 +1,39 @@
+package planoSaude;
+
+public class Plano {
+private String empresa;
+private double valorPago =  80;
+private double valorInss = 5;
+
+
+public void setEmpresa(String empresa) {
+
+	this.empresa = empresa;
+}
+public double getValorPago() {
+	return valorPago;
+}
+public void setValorPago(double valorPago) {
+	this.valorPago = valorPago;
+}
+public double getValorInss() {
+	return valorInss;
+}
+public void setValorInss(double valorInss) {
+	this.valorInss = valorInss;
+}
+public Plano(String empresa) {
+	this.empresa = empresa;
+}
+@Override
+public String toString() {
+    return "Plano: " + empresa + " ValorPago: " + String.format("%.2f", valorPago);
+}
+
+
+public double calcularPagamento() {
+	return  valorPago - valorPago * valorInss/100;
+
+}
+
+}

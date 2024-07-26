@@ -1,0 +1,47 @@
+package projetoBanco;
+
+abstract class Conta {
+    private String cpfTitular;
+    private double saldo;
+    private String agencia;
+    private TipoContaEnun tipo ;
+
+    // Construtor, getters e setters
+    
+	public Conta(String cpfTitular, double saldo, String agencia, TipoContaEnun tipo) {
+		super();
+		this.cpfTitular = cpfTitular;
+		this.saldo = 0.0;
+		this.agencia = agencia;
+		this.tipo = tipo;
+	}
+    public abstract void sacar(double valor);
+    public abstract void depositar(double valor);
+    public abstract void transferir(double valor, Conta destino);
+    
+	public String getCpfTitular() {
+		return cpfTitular;
+	}
+	public void setCpfTitular(String cpfTitular) {
+		this.cpfTitular = cpfTitular;
+	}
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	public String getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+	public TipoContaEnun getTipo() {
+		return tipo;
+	}
+	public void setTipo(TipoContaEnun tipo) {
+		this.tipo = tipo;
+	}
+
+}

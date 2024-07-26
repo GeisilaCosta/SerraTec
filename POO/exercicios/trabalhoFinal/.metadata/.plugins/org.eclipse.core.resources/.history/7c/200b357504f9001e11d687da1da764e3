@@ -1,0 +1,17 @@
+package trabalhoFinal;
+
+public class MainSistemaInterno {
+
+	public static void main(String[] args) {
+		 // Criando uma conta corrente **String cpf, double saldo, String identificadorAgencia, TipoConta tipo
+        Conta conta1 = new Conta(123654789, 200.00, 1, TipoConta.CONTACORRENTE);
+        System.out.println("Conta 1: Tipo " + conta1.getTipo() + ", Saldo: " + conta1.getSaldo());
+
+        // Criando uma conta poupança
+        Conta conta2 = new Conta(1323654789, 150.00, 2,TipoConta.CONTAPOUPANCA);
+        System.out.println("Conta 2: Tipo " + conta2.getTipo() + ", Saldo: " + conta2.getSaldo());
+    }
+
+	}
+
+

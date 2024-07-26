@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informática</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="stylelaptop.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header class="top-border">
+        <nav class="navbar">
+            <img src="../assets/Serra Box.png" alt="Logo">
+        
+                <div><a href="../landingPage.html">Início</a></div>
+                <div><a href="../sobre/sobre.html">Sobre</a></div>
+                <div><a href="../contato/contato.html">Contato</a></div>
+                
+                <div class="search">
+                    <form class="d-flex" role="search">
+                      <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success" type="submit">Search</button>
+                      <script src="../javascript.js"></script>
+                    </form>
+                  </div>
+        </form>
+        <section class="carrinho">
+            <button onclick="location.href='../carrinho/carrinho.html'">
+           <img src="../assets/carrinho.png" alt="carrinho">
+         </button>
+        </section>
+            
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Container um -->
+            <div class="cardA">
+                <div class="img">
+                        <img src="../assets/MACBOOK.jpg" alt="Imagem do Macbook">
+                </div>
+                <h2>Macbook</h2>
+                <div class="content">
+                    <p>
+                        MacBook Pro Apple 14",
+                        M3 Pro,
+                        CPU 11 Núcleos, 
+                        GPU 14 Núcleos, 
+                        18GB RAM, SSD 512GB, 
+                        Preto Espacial - MRX33BZ/A
+                    </p>
+                    <pre style="font-size: 25px;">
+Macbook Pro 14
+Valor: R$12999,90</pre>
+                    <a href="../carrinho/carrinho.html">
+                    <button onclick="adicionarAoCarrinho('Macbook', 12999.90);">Adicionar ao carrinho</button></a>
+                </div>
+            </div>
+            <!-- Container dois -->
+            <div class="cardA">
+                <div class="img">
+                    <img src="../assets/PC_GAMER-removebg-preview.png" alt="imagem do PC Gamer">
+                </div>
+                <h2>Kit Gamer</h2>
+                <div class="content">
+                    <p>
+                        Computador Gamer Completo Intel Core i7 
+                        16GB ssd 256GB 
+                        Kit Gamer com Headset Monitor 20 
+                        Windows 10 3green Flash
+                    </p>
+                    <pre style="font-size: 25px;">
+Kit Gamer
+Valor: R$2899,90</pre>
+                    <a href="../carrinho/carrinho.html">
+                    <button onclick="adicionarAoCarrinho('Kit Gamer', 2899.90);">Adicionar ao carrinho</button></a>
+                </div>
+            </div>
+            <!-- Container três -->
+            <div class="cardA">
+                <div class="img">
+                    <img src="../assets/notebook-acer-removebg-preview.png" alt="imagem do notebook acer">
+                </div>
+                <h2>Notebook Acer</h2>
+                <div class="content">
+                    <p>
+                        Notebook Acer Aspire 3 AMD Ryzen 5-7520U,
+                        16GB RAM, 
+                        SSD 512GB,
+                        15.6" HD,
+                        AMD Radeon Graphics, 
+                        Linux Gutta, 
+                        Prata - A315-24P-R3CQ
+                    </p>
+                    <pre style="font-size: 25px;">
+Notebook Acer
+Valor: R$2599,90</pre>
+                    <a href="../carrinho/carrinho.html">
+                    <button onclick="adicionarAoCarrinho('Notebook Acer', 2599.90);">Adicionar ao carrinho</button></a>
+                </div>
+            </div>
+            </div>
+    
+    </main>
+    
+    <footer>
+        <pre>
+            Todos os direitos reservados
+            &copy; 2023 Serra Box</pre>
+    </footer> 
+    <script src="../carrinho.js"></script>
+</body>
+</html>

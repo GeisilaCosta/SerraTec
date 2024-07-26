@@ -1,0 +1,67 @@
+body {
+    background-color: darkslateblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15pt;
+}
+
+header {
+    color: white;
+    text-align: center;
+}
+
+header:hover {
+    color: red;
+
+}
+
+main {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 500px; 
+    margin: auto;
+    box-shadow: 5px 5px 1px black;
+}
+
+main form label {
+    display: block;
+    margin: 5px 0px;
+}
+
+main form input {
+    width: 100%;
+    height: 25px;
+}
+
+main form input#enviar {
+    background-color: rgb(67, 67, 197);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+main form input#enviar:hover {
+    filter: brightness(1.2);
+    transition: 0.3s;
+}
+
+div {
+    padding: 12px;
+    text-align: center;
+}
+
+div #img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid;
+}
+
+footer {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    margin-top: 20px;
+}
